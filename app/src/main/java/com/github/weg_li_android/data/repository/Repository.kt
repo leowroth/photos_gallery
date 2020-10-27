@@ -1,10 +1,10 @@
 package com.github.weg_li_android.data.repository
 
+import com.github.weg_li_android.data.api.PhotosEndpoints
 import com.github.weg_li_android.data.api.ServiceBuilder
-import com.github.weg_li_android.data.api.WegliEndpoints
 
 class Repository() {
-    var service = ServiceBuilder.buildService(WegliEndpoints::class.java)
+    var service = ServiceBuilder.buildService(PhotosEndpoints::class.java)
 
-    suspend fun getDistricts() = service.getDistricts()
+    suspend fun getPhotosList() = service.getPhotosList()
 }

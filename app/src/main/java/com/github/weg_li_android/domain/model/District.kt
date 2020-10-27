@@ -1,4 +1,4 @@
-package com.github.weg_li_android.data.model
+package com.github.weg_li_android.domain.model
 
 data class District(
     val id: Int,

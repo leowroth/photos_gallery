@@ -2,8 +2,8 @@ package com.github.weg_li_android.ui.main.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
-import com.github.weg_li_android.data.model.Report
 import com.github.weg_li_android.data.repository.Repository
+import com.github.weg_li_android.domain.model.Report
 import kotlinx.coroutines.Dispatchers
 import timber.log.Timber
 
@@ -11,10 +11,10 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
 
     private val report = Report()
 
-    val districts = liveData(Dispatchers.IO) {
-        val retrievedDistricts = repository.getDistricts()
+    val photos = liveData(Dispatchers.IO) {
+        val retrievedPhotos = repository.getPhotosList()
 
-        emit(retrievedDistricts)
+        emit(retrievedPhotos)
     }
 
     fun sendReport() {

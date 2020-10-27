@@ -59,9 +59,9 @@ class MainActivity : AppCompatActivity() {
             startEmailIntent()
         }
 
-        mainViewModel.districts.observe(this, androidx.lifecycle.Observer { list ->
-            // TODO do something with districts
-        })
+//        mainViewModel.districts.observe(this, androidx.lifecycle.Observer { list ->
+//            // TODO do something with districts
+//        })
     }
 
     private fun startEmailIntent() {
