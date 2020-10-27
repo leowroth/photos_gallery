@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -49,10 +51,11 @@ dependencies {
     // glide
     implementation "com.github.bumptech.glide:glide:$versions.glideVersion"
 
-    // koin
-    implementation "org.koin:koin-android:$versions.koinVersion"
-    implementation "org.koin:koin-android-scope:$versions.koinVersion"
-    implementation "org.koin:koin-android-viewmodel:$versions.koinVersion"
+    // dependency injection
+    implementation "com.google.dagger:hilt-android:$versions.hiltVersion"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$versions.hiltCompilerVersion"
+    kapt "androidx.hilt:hilt-compiler:$versions.hiltCompilerVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$versions.hiltVersion"
 
     //LiveData
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycleVersion"

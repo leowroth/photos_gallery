@@ -22,8 +22,9 @@ ext.versions = [
         ktxVersion             : '1.3.2',
         kotlinXVersion         : '1.3.9',
 
-        // koin
-        koinVersion            : '2.1.5',
+        // dependency injection
+        hiltVersion            : '2.29-alpha',
+        hiltCompilerVersion    : '1.0.0-alpha02',
 
         // LiveData
         lifecycleVersion       : '2.3.0-beta01',
