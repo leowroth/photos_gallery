@@ -10,7 +10,7 @@ class MainApplication : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
         setupTimber()
-        setupStrictMode()
+//        setupStrictMode()
     }
 
     private fun setupTimber() {
