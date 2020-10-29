@@ -1,39 +1,38 @@
 package com.github.weg_li_android.ui.photoslist
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.github.weg_li_android.R
+import com.github.weg_li_android.databinding.PhotoCellBinding
 
 class PhotosListAdapter(
     private val urls: List<String>,
-    private val inflater: LayoutInflater,
-    val clickListener: PhotosClickListener
+    var onItemClick: ((Int) -> Unit)? = null
 ) : RecyclerView.Adapter<PhotosListAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val imageView = inflater.inflate(R.layout.photo_cell, parent, false) as ImageView
-        return MyViewHolder(imageView)
+        return MyViewHolder(
+            PhotoCellBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        Glide.with(holder.itemView).load(urls[position]).into(holder.imageView)
+        Glide.with(holder.itemView).load(urls[position]).into(holder.binding.photosListImageView)
     }
 
     override fun getItemCount() = urls.size
 
-    class MyViewHolder(val imageView: ImageView) : RecyclerView.ViewHolder(imageView),
-        View.OnClickListener {
-        override fun onClick(p0: View?) {
-            TODO("Not yet implemented")
+    inner class MyViewHolder(val binding: PhotoCellBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        init {
+            binding.root.setOnClickListener {
+                onItemClick?.invoke(adapterPosition)
+            }
         }
-
-    }
-
-    interface PhotosClickListener {
-        fun onPhotoClicked(imageView: ImageView, position: Int)
     }
 }

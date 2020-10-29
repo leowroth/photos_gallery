@@ -1,17 +1,15 @@
 package com.github.weg_li_android.ui.photoslist
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.widget.ImageView
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import com.github.weg_li_android.R
 import com.github.weg_li_android.ui.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.photos_list.*
+import timber.log.Timber
 
 @AndroidEntryPoint
-class PhotosListActivity : BaseActivity(), PhotosListAdapter.PhotosClickListener {
+class PhotosListActivity : BaseActivity() {
     private lateinit var viewModel: PhotosListViewModel
     private lateinit var adapter: PhotosListAdapter
 
@@ -23,17 +21,14 @@ class PhotosListActivity : BaseActivity(), PhotosListAdapter.PhotosClickListener
 
         viewModel.photosList.observe(this, { list ->
             val photosRecyclerView = photosRecyclerView
-            photosRecyclerView.layoutManager = GridLayoutManager(this, 3)
             adapter = PhotosListAdapter(
-                list.map { it -> it.downloadUrl },
-                LayoutInflater.from(this),
-                this
+                list.map { it -> it.downloadUrl }
             )
+            adapter.onItemClick = { position ->
+                //TODO show PhotoDetailFragment
+                Timber.d(list[position].author)
+            }
             photosRecyclerView.adapter = adapter
         })
-    }
-
-    override fun onPhotoClicked(imageView: ImageView, position: Int) {
-        TODO("Not yet implemented")
     }
 }
