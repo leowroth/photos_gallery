@@ -22,7 +22,17 @@ class PhotosListAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        Glide.with(holder.itemView).load(urls[position]).into(holder.binding.photosListImageView)
+        val currentUrl = urls[position]
+        val photosListImageView = holder.binding.photosListImageView
+
+        Glide
+            .with(holder.itemView)
+            .load(currentUrl)
+            .into(photosListImageView)
+    }
+
+    override fun getItemId(position: Int): Long {
+        return urls[position].hashCode().toLong()
     }
 
     override fun getItemCount() = urls.size

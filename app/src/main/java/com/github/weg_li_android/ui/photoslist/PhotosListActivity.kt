@@ -20,14 +20,17 @@ class PhotosListActivity : BaseActivity() {
         viewModel = ViewModelProvider(this).get(PhotosListViewModel::class.java)
 
         viewModel.photosList.observe(this, { list ->
+
             val photosRecyclerView = photosRecyclerView
             adapter = PhotosListAdapter(
                 list.map { it -> it.downloadUrl }
             )
+            adapter.setHasStableIds(true)
             adapter.onItemClick = { position ->
                 //TODO show PhotoDetailFragment
                 Timber.d(list[position].author)
             }
+
             photosRecyclerView.adapter = adapter
         })
     }
