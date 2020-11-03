@@ -5,9 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.github.weg_li_android.databinding.PhotoCellBinding
+import com.github.weg_li_android.domain.model.Photo
 
 class PhotosListAdapter(
-    private val urls: List<String>,
+    private val urls: List<Photo>,
     var onItemClick: ((Int) -> Unit)? = null
 ) : RecyclerView.Adapter<PhotosListAdapter.MyViewHolder>() {
 
@@ -22,7 +23,7 @@ class PhotosListAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentUrl = urls[position]
+        val currentUrl = urls[position].downloadUrl
         val photosListImageView = holder.binding.photosListImageView
 
         Glide
@@ -32,7 +33,7 @@ class PhotosListAdapter(
     }
 
     override fun getItemId(position: Int): Long {
-        return urls[position].hashCode().toLong()
+        return urls[position].id.toLong()
     }
 
     override fun getItemCount() = urls.size

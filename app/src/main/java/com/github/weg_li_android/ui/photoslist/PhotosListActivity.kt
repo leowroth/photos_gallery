@@ -22,9 +22,7 @@ class PhotosListActivity : BaseActivity() {
         viewModel.photosList.observe(this, { list ->
 
             val photosRecyclerView = photosRecyclerView
-            adapter = PhotosListAdapter(
-                list.map { it -> it.downloadUrl }
-            )
+            adapter = PhotosListAdapter(list)
             adapter.setHasStableIds(true)
             adapter.onItemClick = { position ->
                 //TODO show PhotoDetailFragment
