@@ -14,7 +14,7 @@
         android:paddingStart="@dimen/recyclerview_side_margin"
         android:paddingTop="@dimen/recyclerview_header_margin"
         android:paddingEnd="@dimen/recyclerview_side_margin"
-        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="@integer/grid_columns"
         tools:context=".ui.photoslist.PhotosListActivity"
         tools:listitem="@layout/photo_cell" />
