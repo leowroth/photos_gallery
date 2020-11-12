@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -8,9 +10,44 @@
             type="android.view.View.OnClickListener" />
     </data>
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/photosListImageView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/photo_item_height"
-        android:adjustViewBounds="true" />
+        android:layout_height="wrap_content"
+        android:padding="@dimen/standard_8dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/photosListImageView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/photo_item_height"
+            android:adjustViewBounds="true"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@mipmap/photo_example" />
+
+        <TextView
+            android:id="@+id/photosListLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/standard_16sp"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toLeftOf="@id/photosListImageView"
+            app:layout_constraintRight_toRightOf="@id/photosListImageView"
+            app:layout_constraintTop_toBottomOf="@id/photosListImageView"
+            tools:text="Pablo Hernandez" />
+
+        <ImageView
+            android:id="@+id/photosListFav"
+            android:layout_width="@dimen/standard_16dp"
+            android:layout_height="@dimen/standard_16dp"
+            android:contentDescription="@string/blank_star"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintLeft_toRightOf="@id/photosListLabel"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/photosListImageView"
+            app:srcCompat="@drawable/ic_baseline_star_border_16" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

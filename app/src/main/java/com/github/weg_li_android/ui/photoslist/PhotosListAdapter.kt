@@ -8,6 +8,7 @@ import com.bumptech.glide.ListPreloader
 import com.bumptech.glide.RequestBuilder
 import com.bumptech.glide.util.ViewPreloadSizeProvider
 import com.github.weg_li_android.GlideRequest
+import com.github.weg_li_android.R
 import com.github.weg_li_android.databinding.PhotosItemBinding
 import com.github.weg_li_android.domain.model.Photo
 
@@ -16,6 +17,7 @@ class PhotosListAdapter(
     private val preloadSizeProvider: ViewPreloadSizeProvider<Photo>,
     private val fullRequest: GlideRequest<Drawable>,
     var onItemClick: ((Int) -> Unit)? = null,
+    var onFaved: ((Int) -> Unit)? = null,
 ) : RecyclerView.Adapter<PhotosListAdapter.MyViewHolder>(),
     ListPreloader.PreloadSizeProvider<Photo>, ListPreloader.PreloadModelProvider<Photo> {
 
@@ -37,10 +39,11 @@ class PhotosListAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentUrl = photosList[position].downloadUrl
+        val currentPhoto = photosList[position]
         val photosListImageView = holder.binding.photosListImageView
 
-        fullRequest.load(currentUrl).into(photosListImageView)
+        fullRequest.load(currentPhoto.downloadUrl).into(photosListImageView)
+        holder.binding.photosListLabel.text = currentPhoto.author
     }
 
     override fun getItemId(position: Int): Long {
@@ -54,6 +57,11 @@ class PhotosListAdapter(
         init {
             binding.root.setOnClickListener {
                 onItemClick?.invoke(adapterPosition)
+            }
+
+            binding.photosListFav.setOnClickListener {
+                onFaved?.invoke(adapterPosition)
+                binding.photosListFav.setImageResource(R.drawable.ic_baseline_star_16)
             }
         }
     }
@@ -70,7 +78,7 @@ class PhotosListAdapter(
         return photosList.subList(position, position + 1).toMutableList()
     }
 
-    override fun getPreloadRequestBuilder(item: Photo): RequestBuilder<*>? {
-        return fullRequest.load(item.downloadUrl)
+    override fun getPreloadRequestBuilder(photo: Photo): RequestBuilder<*>? {
+        return fullRequest.load(photo.downloadUrl)
     }
 }
