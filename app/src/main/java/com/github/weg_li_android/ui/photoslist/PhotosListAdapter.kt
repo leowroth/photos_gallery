@@ -8,11 +8,11 @@ import com.bumptech.glide.ListPreloader
 import com.bumptech.glide.RequestBuilder
 import com.bumptech.glide.util.ViewPreloadSizeProvider
 import com.github.weg_li_android.GlideRequest
-import com.github.weg_li_android.databinding.PhotoCellBinding
+import com.github.weg_li_android.databinding.PhotosItemBinding
 import com.github.weg_li_android.domain.model.Photo
 
 class PhotosListAdapter(
-    private val photos: List<Photo>,
+    private val photosList: List<Photo>,
     private val preloadSizeProvider: ViewPreloadSizeProvider<Photo>,
     private val fullRequest: GlideRequest<Drawable>,
     var onItemClick: ((Int) -> Unit)? = null,
@@ -25,7 +25,7 @@ class PhotosListAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val myViewHolder = MyViewHolder(
-            PhotoCellBinding.inflate(
+            PhotosItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -37,19 +37,19 @@ class PhotosListAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentUrl = photos[position].downloadUrl
+        val currentUrl = photosList[position].downloadUrl
         val photosListImageView = holder.binding.photosListImageView
 
         fullRequest.load(currentUrl).into(photosListImageView)
     }
 
     override fun getItemId(position: Int): Long {
-        return photos[position].id.toLong()
+        return photosList[position].id.toLong()
     }
 
-    override fun getItemCount() = photos.size
+    override fun getItemCount() = photosList.size
 
-    inner class MyViewHolder(val binding: PhotoCellBinding) :
+    inner class MyViewHolder(val binding: PhotosItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         init {
             binding.root.setOnClickListener {
@@ -59,15 +59,15 @@ class PhotosListAdapter(
     }
 
     override fun getPreloadSize(
-        item: Photo,
+        photo: Photo,
         adapterPosition: Int,
         perItemPosition: Int
     ): IntArray? {
-        return intArrayOf(item.width, item.height)
+        return intArrayOf(photo.width, photo.height)
     }
 
     override fun getPreloadItems(position: Int): MutableList<Photo> {
-        return photos.subList(position, position + 1).toMutableList()
+        return photosList.subList(position, position + 1).toMutableList()
     }
 
     override fun getPreloadRequestBuilder(item: Photo): RequestBuilder<*>? {

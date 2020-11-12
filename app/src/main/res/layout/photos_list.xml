@@ -17,6 +17,6 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="@integer/grid_columns"
         tools:context=".ui.photoslist.PhotosListActivity"
-        tools:listitem="@layout/photo_cell" />
+        tools:listitem="@layout/photos_item" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
