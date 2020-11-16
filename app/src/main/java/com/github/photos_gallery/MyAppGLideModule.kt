@@ -1,8 +1,8 @@
-package com.github.weg_li_android
+package com.github.photos_gallery
 
 import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.module.AppGlideModule
 
 @GlideModule
-public final class MyAppGlideModule : AppGlideModule() {
+class MyAppGlideModule : AppGlideModule() {
 }

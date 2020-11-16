@@ -1,4 +1,4 @@
-package com.github.weg_li_android.data.api
+package com.github.photos_gallery.data.api
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

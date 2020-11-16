@@ -1,4 +1,4 @@
-package com.github.weg_li_android.ui.photoslist
+package com.github.photos_gallery.ui.photoslist
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -8,12 +8,12 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.integration.recyclerview.RecyclerViewPreloader
 import com.bumptech.glide.util.ViewPreloadSizeProvider
-import com.github.weg_li_android.GlideApp
-import com.github.weg_li_android.GlideRequest
-import com.github.weg_li_android.GlideRequests
-import com.github.weg_li_android.R
-import com.github.weg_li_android.domain.model.Photo
-import com.github.weg_li_android.ui.base.BaseActivity
+import com.github.photos_gallery.GlideApp
+import com.github.photos_gallery.GlideRequest
+import com.github.photos_gallery.GlideRequests
+import com.github.photos_gallery.R
+import com.github.photos_gallery.domain.model.Photo
+import com.github.photos_gallery.ui.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.photos_list.*
 import timber.log.Timber
@@ -21,12 +21,13 @@ import timber.log.Timber
 @AndroidEntryPoint
 class PhotosListActivity : BaseActivity() {
     private val amountToPreload = 10
+    private lateinit var viewModel: PhotosListViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.photos_list)
 
-        val viewModel = ViewModelProvider(this).get(PhotosListViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(PhotosListViewModel::class.java)
 
         viewModel.photosList.observe(this, { photosList ->
             val glideRequest = GlideApp.with(applicationContext)
@@ -58,6 +59,9 @@ class PhotosListActivity : BaseActivity() {
         adapter.onItemClick = { position ->
             //TODO show PhotoDetailFragment
             Timber.d(list[position].author)
+        }
+        adapter.onFaved = { position ->
+            viewModel.onFavedClicked(position)
         }
         return adapter
     }

@@ -1,4 +1,4 @@
-package com.github.weg_li_android
+package com.github.photos_gallery
 
 import android.os.StrictMode
 import androidx.multidex.MultiDexApplication

@@ -1,4 +1,4 @@
-package com.github.weg_li_android
+package com.github.photos_gallery
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

@@ -1,6 +1,6 @@
-package com.github.weg_li_android.data.api
+package com.github.photos_gallery.data.api
 
-import com.github.weg_li_android.domain.model.Photo
+import com.github.photos_gallery.domain.model.Photo
 import retrofit2.http.GET
 
 interface PhotosEndpoints {

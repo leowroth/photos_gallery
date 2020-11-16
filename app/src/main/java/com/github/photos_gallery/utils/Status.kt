@@ -1,4 +1,4 @@
-package com.github.weg_li_android.utils
+package com.github.photos_gallery.utils
 
 enum class Status {
     SUCCESS,

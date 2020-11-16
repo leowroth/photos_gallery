@@ -1,4 +1,4 @@
-package com.github.weg_li_android.utils
+package com.github.photos_gallery.utils
 
 data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
 

@@ -1,4 +1,4 @@
-package com.github.weg_li_android.ui.base
+package com.github.photos_gallery.ui.base
 
 import androidx.lifecycle.ViewModel
 

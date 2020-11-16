@@ -1,16 +1,17 @@
-package com.github.weg_li_android.ui.photoslist
+package com.github.photos_gallery.ui.photoslist
 
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.ListPreloader
 import com.bumptech.glide.RequestBuilder
 import com.bumptech.glide.util.ViewPreloadSizeProvider
-import com.github.weg_li_android.GlideRequest
-import com.github.weg_li_android.R
-import com.github.weg_li_android.databinding.PhotosItemBinding
-import com.github.weg_li_android.domain.model.Photo
+import com.github.photos_gallery.GlideRequest
+import com.github.photos_gallery.R
+import com.github.photos_gallery.databinding.PhotosItemBinding
+import com.github.photos_gallery.domain.model.Photo
 
 class PhotosListAdapter(
     private val photosList: List<Photo>,
@@ -44,6 +45,19 @@ class PhotosListAdapter(
 
         fullRequest.load(currentPhoto.downloadUrl).into(photosListImageView)
         holder.binding.photosListLabel.text = currentPhoto.author
+
+        drawFavedIcon(currentPhoto.faved, holder.binding.photosListFav)
+    }
+
+    private fun drawFavedIcon(
+        faved: Boolean,
+        photosListFav: ImageView
+    ) {
+        if (faved) {
+            photosListFav.setImageResource(R.drawable.ic_baseline_star_16)
+        } else {
+            photosListFav.setImageResource(R.drawable.ic_baseline_star_border_16)
+        }
     }
 
     override fun getItemId(position: Int): Long {
@@ -61,7 +75,7 @@ class PhotosListAdapter(
 
             binding.photosListFav.setOnClickListener {
                 onFaved?.invoke(adapterPosition)
-                binding.photosListFav.setImageResource(R.drawable.ic_baseline_star_16)
+                drawFavedIcon(photosList[adapterPosition].faved, binding.photosListFav)
             }
         }
     }

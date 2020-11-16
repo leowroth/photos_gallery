@@ -1,4 +1,4 @@
-package com.github.weg_li_android.domain.model
+package com.github.photos_gallery.domain.model
 
 import com.google.gson.annotations.SerializedName
 
@@ -8,5 +8,6 @@ data class Photo(
     val width: Int,
     val height: Int,
     val url: String,
+    var faved: Boolean,
     @SerializedName("download_url") val downloadUrl: String
 )
