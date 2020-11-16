@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.github.photos_gallery">
+    package="com.github.leowroth.photos_gallery">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.github.photos_gallery.MainApplication"
+        android:name="com.github.leowroth.photos_gallery.MainApplication"
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.github.photos_gallery.ui.photoslist.PhotosListActivity">
+        <activity android:name="com.github.leowroth.photos_gallery.ui.photoslist.PhotosListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

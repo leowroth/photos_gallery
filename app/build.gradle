@@ -11,7 +11,7 @@ android {
     buildToolsVersion versions.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.github.photos_gallery"
+        applicationId "com.github.leowroth.photos_gallery"
         minSdkVersion versions.minSdkVersion
         targetSdkVersion versions.targetSdkVersion
         versionCode versions.versionCode
