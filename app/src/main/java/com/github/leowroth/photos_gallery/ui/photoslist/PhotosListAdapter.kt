@@ -20,7 +20,7 @@ class PhotosListAdapter(
     var onItemClick: ((Int) -> Unit)? = null,
     var onFaved: ((Int) -> Unit)? = null,
 ) : RecyclerView.Adapter<PhotosListAdapter.MyViewHolder>(),
-    ListPreloader.PreloadSizeProvider<Photo>, ListPreloader.PreloadModelProvider<Photo> {
+    ListPreloader.PreloadModelProvider<Photo> {
 
     init {
         setHasStableIds(true)
@@ -35,7 +35,7 @@ class PhotosListAdapter(
             )
         )
 
-        preloadSizeProvider.setView(myViewHolder.itemView)
+        preloadSizeProvider.setView(myViewHolder.binding.photosListImageView)
         return myViewHolder
     }
 
@@ -78,14 +78,6 @@ class PhotosListAdapter(
                 drawFavedIcon(photosList[adapterPosition].faved, binding.photosListFav)
             }
         }
-    }
-
-    override fun getPreloadSize(
-        photo: Photo,
-        adapterPosition: Int,
-        perItemPosition: Int
-    ): IntArray? {
-        return intArrayOf(photo.width, photo.height)
     }
 
     override fun getPreloadItems(position: Int): MutableList<Photo> {
