@@ -17,6 +17,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.github.weg_li_android", appContext.packageName)
+        assertEquals("com.github.photos_gallery", appContext.packageName)
     }
 }
