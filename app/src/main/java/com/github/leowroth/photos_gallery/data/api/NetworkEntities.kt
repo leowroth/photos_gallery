@@ -2,7 +2,6 @@ package com.github.leowroth.photos_gallery.data.api
 
 import com.github.leowroth.photos_gallery.data.database.DatabasePhoto
 
-data class NetworkPhotoContainer(val photos: List<NetworkPhoto>)
 
 data class NetworkPhoto(
     val id: String,
@@ -13,8 +12,8 @@ data class NetworkPhoto(
     val download_url: String
 )
 
-fun NetworkPhotoContainer.asDatabaseModel(): List<DatabasePhoto> {
-    return photos.map {
+fun List<NetworkPhoto>.asDatabaseModel(): List<DatabasePhoto> {
+    return map {
         DatabasePhoto(
             id = it.id,
             author = it.author,
