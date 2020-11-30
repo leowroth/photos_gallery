@@ -18,11 +18,11 @@ class PhotosRepository @Inject constructor(private val database: PhotosDatabase)
     suspend fun refreshPhotos() {
         withContext(Dispatchers.IO) {
             val photos = service.getPhotosList()
-            database.photoDao.insertAll(photos.asDatabaseModel())
+            database.photoDao().insertAll(photos.asDatabaseModel())
         }
     }
 
-    val photos: LiveData<List<Photo>> = Transformations.map(database.photoDao.getPhotos()) {
+    val photos: LiveData<List<Photo>> = Transformations.map(database.photoDao().getPhotos()) {
         it.asDomainModel()
     }
 }
