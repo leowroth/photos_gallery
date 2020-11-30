@@ -3,6 +3,9 @@ package com.github.leowroth.photos_gallery.data.database
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import dagger.Provides
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Singleton
 
 @Dao
 interface PhotoDao {
@@ -20,15 +23,12 @@ abstract class PhotosDatabase : RoomDatabase() {
 
 private lateinit var INSTANCE: PhotosDatabase
 
-fun getDatabase(context: Context): PhotosDatabase {
-    synchronized(PhotosDatabase::class.java) {
-        if (!::INSTANCE.isInitialized) {
-            INSTANCE = Room.databaseBuilder(
-                context.applicationContext,
-                PhotosDatabase::class.java,
-                "photos"
-            ).build()
-        }
-    }
-    return INSTANCE
+@Provides
+@Singleton
+fun provideAppDatabase(@ApplicationContext context: Context): PhotosDatabase {
+    return Room.databaseBuilder(
+        context.applicationContext,
+        PhotosDatabase::class.java,
+        "photos"
+    ).build()
 }
