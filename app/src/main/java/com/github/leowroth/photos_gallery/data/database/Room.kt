@@ -10,6 +10,9 @@ interface PhotoDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(photos: List<DatabasePhoto>)
+
+    @Update()
+    fun update(copyPhoto: DatabasePhoto)
 }
 
 @Database(entities = [DatabasePhoto::class], version = 1, exportSchema = false)

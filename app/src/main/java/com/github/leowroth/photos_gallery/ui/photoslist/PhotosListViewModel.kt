@@ -31,7 +31,12 @@ class PhotosListViewModel
     }
 
     fun onFavedClicked(position: Int) {
-        //TODO Update faved for the Photo at the given position
+        val currentPhoto = photosList.value?.get(position)
+        if (currentPhoto != null) {
+            viewModelScope.launch {
+                photosRepository.photoFaved(currentPhoto)
+            }
+        }
     }
 
     val photosList = photosRepository.photos

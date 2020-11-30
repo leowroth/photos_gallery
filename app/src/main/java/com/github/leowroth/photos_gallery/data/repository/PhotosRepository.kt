@@ -8,6 +8,7 @@ import com.github.leowroth.photos_gallery.data.api.asDatabaseModel
 import com.github.leowroth.photos_gallery.data.database.PhotosDatabase
 import com.github.leowroth.photos_gallery.data.database.asDomainModel
 import com.github.leowroth.photos_gallery.domain.model.Photo
+import com.github.leowroth.photos_gallery.domain.model.asDatabasePhoto
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -19,6 +20,13 @@ class PhotosRepository @Inject constructor(private val database: PhotosDatabase)
         withContext(Dispatchers.IO) {
             val photos = service.getPhotosList()
             database.photoDao().insertAll(photos.asDatabaseModel())
+        }
+    }
+
+    suspend fun photoFaved(currentPhoto: Photo) {
+        withContext(Dispatchers.IO) {
+            val copyPhoto = currentPhoto.copy(faved = currentPhoto.faved.not())
+            database.photoDao().update(copyPhoto.asDatabasePhoto())
         }
     }
 
