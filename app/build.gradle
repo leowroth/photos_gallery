@@ -67,6 +67,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycleVersion"
 
+    //Room
+    implementation "androidx.room:room-runtime:$versions.roomVersion"
+    kapt "androidx.room:room-compiler:$versions.roomVersion"
+
     // kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlinVersion"
     implementation "androidx.core:core-ktx:$versions.ktxVersion"
