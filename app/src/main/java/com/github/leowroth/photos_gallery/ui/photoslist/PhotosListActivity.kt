@@ -41,24 +41,21 @@ class PhotosListActivity : BaseActivity() {
 
             val sizeProvider = ViewPreloadSizeProvider<Photo>()
 
-            setupRecyclerView(
-                setupAdapter(photosList, sizeProvider, fullRequest),
-                glideRequest, sizeProvider
-            )
-
+            val adapter = setupAdapter(photosList, sizeProvider, fullRequest)
+            setupRecyclerView(adapter, glideRequest, sizeProvider)
         })
     }
 
     private fun setupAdapter(
-        list: List<Photo>,
+        photosList: List<Photo>,
         sizeProvider: ViewPreloadSizeProvider<Photo>,
         fullRequest: GlideRequest<Drawable>
     ): PhotosListAdapter {
-        val adapter = PhotosListAdapter(list, sizeProvider, fullRequest)
+        val adapter = PhotosListAdapter(photosList, sizeProvider, fullRequest)
         adapter.setHasStableIds(true)
         adapter.onItemClick = { position ->
             //TODO show PhotoDetailFragment
-            Timber.d(list[position].author)
+            Timber.d(photosList[position].author)
         }
         adapter.onFaved = { position ->
             viewModel.onFavedClicked(position)
