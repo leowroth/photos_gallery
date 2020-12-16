@@ -15,11 +15,11 @@ import timber.log.Timber
 import javax.inject.Inject
 
 class PhotosRepository @Inject constructor(private val database: PhotosDatabase) {
-    var service = ServiceBuilder.buildService(PhotosEndpoints::class.java)
+
 
     suspend fun refreshPhotos() {
         withContext(Dispatchers.IO) {
-
+            val service = ServiceBuilder.buildService(PhotosEndpoints::class.java)
             val remotePhotos = service.getPhotosList()
             Timber.d("Inserting: ${remotePhotos.size}")
             database.photoDao().insertAll(remotePhotos.asDatabaseModel())
