@@ -8,7 +8,7 @@ object ServiceBuilder {
     private val client = OkHttpClient.Builder().build()
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://picsum.photos/")
+        .baseUrl("https://thaliabooks.herokuapp.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
         .build()

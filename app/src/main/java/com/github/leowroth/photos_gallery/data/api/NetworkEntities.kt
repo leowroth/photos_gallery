@@ -5,23 +5,20 @@ import com.github.leowroth.photos_gallery.data.database.DatabasePhoto
 
 data class NetworkPhoto(
     val id: String,
-    val author: String,
-    val width: Int,
-    val height: Int,
-    val url: String,
-    val download_url: String
+    val title: String,
+    val imageUrl: String
 )
 
 fun List<NetworkPhoto>.asDatabaseModel(): List<DatabasePhoto> {
     return map {
         DatabasePhoto(
             id = it.id,
-            author = it.author,
-            width = it.width,
-            height = it.height,
-            url = it.url,
+            author = "",
+            width = 0,
+            height = 0,
+            url = "",
             faved = false,
-            downloadUrl = it.download_url
+            downloadUrl = it.imageUrl.replace("http", "https")
         )
     }
 }

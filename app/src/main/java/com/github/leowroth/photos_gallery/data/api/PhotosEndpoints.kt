@@ -4,6 +4,6 @@ import retrofit2.http.GET
 
 interface PhotosEndpoints {
 
-    @GET("/v2/list")
+    @GET("/cats")
     suspend fun getPhotosList(): List<NetworkPhoto>
 }

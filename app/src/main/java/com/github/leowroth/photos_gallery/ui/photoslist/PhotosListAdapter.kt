@@ -61,7 +61,7 @@ class PhotosListAdapter(
     }
 
     override fun getItemId(position: Int): Long {
-        return photosList[position].id.toLong()
+        return photosList[position].id.hashCode().toLong()
     }
 
     override fun getItemCount() = photosList.size
@@ -84,7 +84,7 @@ class PhotosListAdapter(
         return photosList.subList(position, position + 1).toMutableList()
     }
 
-    override fun getPreloadRequestBuilder(photo: Photo): RequestBuilder<*>? {
+    override fun getPreloadRequestBuilder(photo: Photo): RequestBuilder<*> {
         return fullRequest.load(photo.downloadUrl)
     }
 }
