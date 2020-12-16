@@ -68,7 +68,7 @@ class PhotosListActivity : BaseActivity() {
         glideRequest: GlideRequests,
         sizeProvider: ViewPreloadSizeProvider<Photo>
     ) {
-        photosRecyclerView.adapter = adapter
+        photosRecyclerView.swapAdapter(adapter, false)
 
         val preLoader = RecyclerViewPreloader(
             glideRequest, adapter, sizeProvider, amountToPreload
