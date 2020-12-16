@@ -42,6 +42,7 @@ ext.versions = [
 
         // testing
         mockitoVersion         : '2.2.0',
+        mockkVersion           : '1.10.3-jdk8',
         junitVersion           : '4.13.1',
         junitExtVersion        : '1.1.2',
         espressoVersion        : '3.3.0'
