@@ -8,6 +8,9 @@ interface PhotoDao {
     @Query("select * from databasephoto")
     fun getPhotos(): LiveData<List<DatabasePhoto>>
 
+    @Query("select * from databasephoto")
+    fun getCurrentPhotos(): List<DatabasePhoto>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(photos: List<DatabasePhoto>)
 

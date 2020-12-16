@@ -11,6 +11,7 @@ import okio.IOException
 
 class PhotosListViewModel
 @ViewModelInject constructor(private val photosRepository: PhotosRepository) : BaseViewModel() {
+    val photosList = photosRepository.photos
 
     init {
         refreshDataFromRepository()
@@ -38,6 +39,4 @@ class PhotosListViewModel
             }
         }
     }
-
-    val photosList = photosRepository.photos
 }

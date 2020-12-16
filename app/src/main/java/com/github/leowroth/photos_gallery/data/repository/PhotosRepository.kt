@@ -11,6 +11,7 @@ import com.github.leowroth.photos_gallery.domain.model.Photo
 import com.github.leowroth.photos_gallery.domain.model.asDatabasePhoto
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import timber.log.Timber
 import javax.inject.Inject
 
 class PhotosRepository @Inject constructor(private val database: PhotosDatabase) {
@@ -18,8 +19,16 @@ class PhotosRepository @Inject constructor(private val database: PhotosDatabase)
 
     suspend fun refreshPhotos() {
         withContext(Dispatchers.IO) {
-            val photos = service.getPhotosList()
-            database.photoDao().insertAll(photos.asDatabaseModel())
+
+            val remotePhotos = service.getPhotosList()
+            Timber.d("Inserting: ${remotePhotos.size}")
+            database.photoDao().insertAll(remotePhotos.asDatabaseModel())
+
+            val oldPhotos = database.photoDao().getCurrentPhotos()
+            Timber.d("Updating: ${oldPhotos.size}")
+            oldPhotos.let { it ->
+                it.forEach { oldPhoto -> database.photoDao().update(oldPhoto) }
+            }
         }
     }
 
