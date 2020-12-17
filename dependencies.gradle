@@ -45,6 +45,7 @@ ext.versions = [
         mockkVersion           : '1.10.3-jdk8',
         junitVersion           : '4.13.1',
         junitExtVersion        : '1.1.2',
+        coreTestingVersion     : "2.1.0",
         espressoVersion        : '3.3.0'
 ]
 

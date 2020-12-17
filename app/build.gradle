@@ -101,6 +101,7 @@ dependencies {
     testImplementation "junit:junit:$versions.junitVersion"
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlinVersion"
     testImplementation "io.mockk:mockk:$versions.mockkVersion"
-    androidTestImplementation "androidx.test.ext:junit:$versions.junitExtVersion"
+    testImplementation "androidx.test.ext:junit:$versions.junitExtVersion"
+    testImplementation "androidx.arch.core:core-testing:$versions.coreTestingVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$versions.espressoVersion"
 }
