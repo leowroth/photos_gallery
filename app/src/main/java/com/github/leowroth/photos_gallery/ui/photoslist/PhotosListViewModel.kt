@@ -43,7 +43,7 @@ class PhotosListViewModel
     fun onFavedClicked(position: Int) {
         val currentPhoto = photosList.value?.get(position)
         if (currentPhoto != null) {
-            viewModelScope.launch {
+            viewModelScope.launch(Dispatchers.IO) {
                 photoFavedUseCaseImpl.photoFaved(currentPhoto)
             }
         }
