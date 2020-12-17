@@ -4,9 +4,9 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.github.leowroth.photos_gallery.domain.usecase.GetPhotosUseCaseImpl
-import com.github.leowroth.photos_gallery.domain.usecase.PhotoFavedUseCaseImpl
-import com.github.leowroth.photos_gallery.domain.usecase.RefreshPhotosUseCaseImpl
+import com.github.leowroth.photos_gallery.domain.usecase.GetPhotosUseCase
+import com.github.leowroth.photos_gallery.domain.usecase.PhotoFavedUseCase
+import com.github.leowroth.photos_gallery.domain.usecase.RefreshPhotosUseCase
 import com.github.leowroth.photos_gallery.ui.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,9 +14,9 @@ import okio.IOException
 
 class PhotosListViewModel
 @ViewModelInject constructor(
-    getPhotosUseCaseImpl: GetPhotosUseCaseImpl,
-    private val refreshPhotosUseCaseImpl: RefreshPhotosUseCaseImpl,
-    private val photoFavedUseCaseImpl: PhotoFavedUseCaseImpl
+    getPhotosUseCaseImpl: GetPhotosUseCase,
+    private val refreshPhotosUseCaseImpl: RefreshPhotosUseCase,
+    private val photoFavedUseCaseImpl: PhotoFavedUseCase
 ) : BaseViewModel() {
     val photosList = getPhotosUseCaseImpl.invoke()
 
