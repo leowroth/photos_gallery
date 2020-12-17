@@ -4,26 +4,35 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.github.leowroth.photos_gallery.data.repository.PhotosRepository
+import com.github.leowroth.photos_gallery.domain.usecase.GetPhotosUseCaseImpl
+import com.github.leowroth.photos_gallery.domain.usecase.PhotoFavedUseCaseImpl
+import com.github.leowroth.photos_gallery.domain.usecase.RefreshPhotosUseCaseImpl
 import com.github.leowroth.photos_gallery.ui.base.BaseViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import okio.IOException
 
 class PhotosListViewModel
-@ViewModelInject constructor(private val photosRepository: PhotosRepository) : BaseViewModel() {
-    val photosList = photosRepository.photos
+@ViewModelInject constructor(
+    getPhotosUseCaseImpl: GetPhotosUseCaseImpl,
+    private val refreshPhotosUseCaseImpl: RefreshPhotosUseCaseImpl,
+    private val photoFavedUseCaseImpl: PhotoFavedUseCaseImpl
+) : BaseViewModel() {
+    val photosList = getPhotosUseCaseImpl.invoke()
 
     init {
-        refreshDataFromRepository()
+        viewModelScope.launch(Dispatchers.IO) {
+            refreshPhotosUseCaseImpl.invoke()
+        }
     }
 
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
     val eventNetworkError: LiveData<Boolean> get() = _eventNetworkError
 
     private fun refreshDataFromRepository() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             try {
-                photosRepository.refreshPhotos()
+                refreshPhotosUseCaseImpl.invoke()
                 _eventNetworkError.value = false
             } catch (networkError: IOException) {
                 if (photosList.value.isNullOrEmpty()) _eventNetworkError.value = true
@@ -35,7 +44,7 @@ class PhotosListViewModel
         val currentPhoto = photosList.value?.get(position)
         if (currentPhoto != null) {
             viewModelScope.launch {
-                photosRepository.photoFaved(currentPhoto)
+                photoFavedUseCaseImpl.photoFaved(currentPhoto)
             }
         }
     }
