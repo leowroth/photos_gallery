@@ -4,10 +4,7 @@ import com.github.leowroth.photos_gallery.data.database.DatabasePhoto
 
 data class Photo(
     val id: String,
-    val author: String,
-    val width: Int,
-    val height: Int,
-    val url: String,
+    val title: String,
     val faved: Boolean,
     val downloadUrl: String
 )
@@ -15,10 +12,7 @@ data class Photo(
 fun Photo.asDatabasePhoto(): DatabasePhoto {
     return DatabasePhoto(
         id = id,
-        author = author,
-        width = width,
-        height = height,
-        url = url,
+        title = title,
         faved = faved,
         downloadUrl = downloadUrl
     )

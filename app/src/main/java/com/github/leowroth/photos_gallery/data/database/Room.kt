@@ -18,7 +18,7 @@ interface PhotoDao {
     fun update(copyPhoto: DatabasePhoto)
 }
 
-@Database(entities = [DatabasePhoto::class], version = 1, exportSchema = false)
+@Database(entities = [DatabasePhoto::class], version = 5, exportSchema = false)
 abstract class PhotosDatabase : RoomDatabase() {
     abstract fun photoDao(): PhotoDao
 }

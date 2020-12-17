@@ -13,10 +13,7 @@ fun List<NetworkPhoto>.asDatabaseModel(): List<DatabasePhoto> {
     return map {
         DatabasePhoto(
             id = it.id,
-            author = "",
-            width = 0,
-            height = 0,
-            url = "",
+            title = it.title,
             faved = false,
             downloadUrl = it.imageUrl.replace("http", "https")
         )

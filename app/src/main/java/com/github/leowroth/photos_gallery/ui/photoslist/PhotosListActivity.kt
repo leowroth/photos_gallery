@@ -55,7 +55,7 @@ class PhotosListActivity : BaseActivity() {
         adapter.setHasStableIds(true)
         adapter.onItemClick = { position ->
             //TODO show PhotoDetailFragment
-            Timber.d(photosList[position].author)
+            Timber.d(photosList[position].title)
         }
         adapter.onFaved = { position ->
             viewModel.onFavedClicked(position)
