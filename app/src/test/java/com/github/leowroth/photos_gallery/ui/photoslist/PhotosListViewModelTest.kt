@@ -40,6 +40,7 @@ class PhotosListViewModelTest {
         coEvery {
             refreshPhotosUseCase.invoke()
         } answers { nothing }
+
     }
 
 
@@ -63,5 +64,34 @@ class PhotosListViewModelTest {
             assertEquals(false, photosListViewModel.eventNetworkError.value)
             assertEquals(expectedPhotos, photosListViewModel.photosList)
             coVerify { refreshPhotosUseCase.invoke() }
+        }
+
+    @Test
+    fun `onFavedClicked calls photoFavedUseCase with correct Photo`() =
+        coroutinesTestRule.testDispatcher.runBlockingTest {
+            val currentPosition = 1
+            val currentPhoto = Photo(id = "Second")
+            val currentPhotosList = MutableLiveData(
+                listOf(
+                    Photo(id = "First"),
+                    currentPhoto,
+                    Photo(id = "Third"),
+                    Photo(id = "Fourth")
+                )
+            )
+            coEvery { getPhotosUseCase.invoke() } answers { currentPhotosList }
+
+            photosListViewModel =
+                PhotosListViewModel(
+                    getPhotosUseCase,
+                    refreshPhotosUseCase,
+                    photoFavedUseCase
+                )
+
+            photosListViewModel.onFavedClicked(currentPosition)
+
+            coVerify {
+                photoFavedUseCase.photoFaved(currentPhoto)
+            }
         }
 }
