@@ -9,17 +9,19 @@ data class DatabasePhoto constructor(
     @PrimaryKey
     val id: String,
     val title: String,
-    var faved: Boolean,
-    val downloadUrl: String
+    val faved: Boolean,
+    val downloadUrl: String,
+    val position: Int
 )
 
 fun List<DatabasePhoto>.asDomainModel(): List<Photo> {
-    return map {
+    return mapIndexed { index, it ->
         Photo(
             id = it.id,
             title = it.title,
             faved = it.faved,
-            downloadUrl = it.downloadUrl
+            downloadUrl = it.downloadUrl,
+            position = index
         )
     }
 }

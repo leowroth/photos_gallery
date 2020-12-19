@@ -15,7 +15,8 @@ fun List<NetworkPhoto>.asDatabaseModel(): List<DatabasePhoto> {
             id = it.id,
             title = it.title,
             faved = false,
-            downloadUrl = it.imageUrl.replace("http", "https")
+            downloadUrl = it.imageUrl.replace("http", "https"),
+            position = 0
         )
     }
 }

@@ -43,7 +43,6 @@
                 android:contentDescription="@string/blank_star"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="1"
-                app:layout_constraintLeft_toRightOf="@id/photosListLabel"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/photosListImageView"
                 app:srcCompat="@drawable/ic_baseline_star_border_16" />
