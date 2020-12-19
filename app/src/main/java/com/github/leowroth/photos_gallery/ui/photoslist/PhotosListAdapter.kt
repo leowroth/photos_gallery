@@ -26,7 +26,10 @@ class PhotosListAdapter(
         setHasStableIds(true)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): MyViewHolder {
         val myViewHolder = MyViewHolder(
             PhotosItemBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -75,12 +78,16 @@ class PhotosListAdapter(
 
             binding.photosListFav.setOnClickListener {
                 onFaved?.invoke(adapterPosition)
-                drawFavedIcon(photosList[adapterPosition].faved, binding.photosListFav)
+                drawFavedIcon(
+                    photosList[adapterPosition].faved,
+                    binding.photosListFav
+                )
             }
         }
     }
 
     override fun getPreloadItems(position: Int): MutableList<Photo> {
+        if (photosList.size < 2) return photosList.toMutableList()
         return photosList.subList(position, position + 1).toMutableList()
     }
 
