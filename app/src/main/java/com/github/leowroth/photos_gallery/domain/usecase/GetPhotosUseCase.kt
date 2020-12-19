@@ -10,12 +10,12 @@ import dagger.hilt.android.components.ActivityComponent
 import javax.inject.Inject
 
 interface GetPhotosUseCase {
-    operator fun invoke(): LiveData<List<Photo>>
+    operator fun invoke(): LiveData<MutableList<Photo>>
 }
 
 class GetPhotosUseCaseImpl @Inject constructor(private val repository: PhotosRepository) :
     GetPhotosUseCase {
-    override fun invoke(): LiveData<List<Photo>> = repository.photos
+    override fun invoke(): LiveData<MutableList<Photo>> = repository.photos
 }
 
 @Module

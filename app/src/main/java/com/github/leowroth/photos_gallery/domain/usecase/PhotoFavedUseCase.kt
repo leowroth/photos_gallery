@@ -24,5 +24,5 @@ class PhotoFavedUseCaseImpl @Inject constructor(
 abstract class PhotoFavedUseCaseModule {
 
     @Binds
-    abstract fun bindGetPhotosUseCase(photoFavedUseCaseImpl: PhotoFavedUseCaseImpl): PhotoFavedUseCase
+    abstract fun bindPhotoFavedUseCase(photoFavedUseCaseImpl: PhotoFavedUseCaseImpl): PhotoFavedUseCase
 }

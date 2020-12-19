@@ -5,6 +5,7 @@ import androidx.lifecycle.Transformations
 import com.github.leowroth.photos_gallery.data.api.PhotosEndpoints
 import com.github.leowroth.photos_gallery.data.api.ServiceBuilder
 import com.github.leowroth.photos_gallery.data.api.asDatabaseModel
+import com.github.leowroth.photos_gallery.data.database.DatabasePhoto
 import com.github.leowroth.photos_gallery.data.database.PhotosDatabase
 import com.github.leowroth.photos_gallery.data.database.asDomainModel
 import com.github.leowroth.photos_gallery.domain.model.Photo
@@ -27,7 +28,7 @@ class PhotosRepository @Inject constructor(private val database: PhotosDatabase)
 
             val oldPhotos = database.photoDao().getCurrentPhotos()
             Timber.d("Updating: ${oldPhotos.size}")
-            oldPhotos.let { it ->
+            oldPhotos.let {
                 it.forEach { oldPhoto -> database.photoDao().update(oldPhoto) }
             }
         }
@@ -40,8 +41,15 @@ class PhotosRepository @Inject constructor(private val database: PhotosDatabase)
         }
     }
 
-    val photos: LiveData<List<Photo>> =
+    suspend fun insertAll(photos: List<DatabasePhoto>) {
+        withContext(Dispatchers.IO) {
+            database.photoDao().insertAll(photos)
+        }
+    }
+
+    val photos: LiveData<MutableList<Photo>> =
         Transformations.map(database.photoDao().getPhotos()) { databasePhotos ->
             databasePhotos.asDomainModel().sortedBy { it.position }
+                .toMutableList()
         }
 }

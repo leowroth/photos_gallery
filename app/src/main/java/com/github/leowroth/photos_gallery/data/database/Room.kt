@@ -6,7 +6,7 @@ import androidx.room.*
 @Dao
 interface PhotoDao {
     @Query("select * from databasephoto")
-    fun getPhotos(): LiveData<List<DatabasePhoto>>
+    fun getPhotos(): LiveData<MutableList<DatabasePhoto>>
 
     @Query("select * from databasephoto")
     fun getCurrentPhotos(): List<DatabasePhoto>
