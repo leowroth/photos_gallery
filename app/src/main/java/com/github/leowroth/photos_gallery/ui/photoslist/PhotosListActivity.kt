@@ -70,8 +70,7 @@ class PhotosListActivity : BaseActivity() {
         val adapter = PhotosListAdapter(photosList, sizeProvider, fullRequest)
         adapter.setHasStableIds(true)
         adapter.onItemClick = { position ->
-            //TODO show PhotoDetailFragment
-            Timber.d(photosList[position].title)
+            viewModel.onPhotoClicked(position)
         }
         adapter.onFaved = { position ->
             viewModel.onFavedClicked(position)
