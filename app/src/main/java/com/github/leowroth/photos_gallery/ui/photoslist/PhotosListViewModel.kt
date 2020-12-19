@@ -19,23 +19,26 @@ class PhotosListViewModel
     private val photoFavedUseCaseImpl: PhotoFavedUseCase
 ) : BaseViewModel() {
     val photosList = getPhotosUseCaseImpl.invoke()
+    private var eventNetworkError = MutableLiveData(false)
+    val eventNetworkErrorData: LiveData<Boolean> get() = eventNetworkError
+    private var eventLoading = MutableLiveData(false)
+    val eventLoadingData: LiveData<Boolean> get() = eventLoading
 
-    init {
-        viewModelScope.launch(Dispatchers.IO) {
-            refreshPhotosUseCaseImpl.invoke()
-        }
-    }
+    fun refreshDataFromRepository() {
+        eventLoading.postValue(true)
 
-    private var _eventNetworkError = MutableLiveData<Boolean>(false)
-    val eventNetworkError: LiveData<Boolean> get() = _eventNetworkError
-
-    private fun refreshDataFromRepository() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 refreshPhotosUseCaseImpl.invoke()
-                _eventNetworkError.value = false
             } catch (networkError: IOException) {
-                if (photosList.value.isNullOrEmpty()) _eventNetworkError.value = true
+                viewModelScope.launch {
+                    eventNetworkError.value = true
+                    photosList.value.isNullOrEmpty()
+                }
+            } finally {
+                viewModelScope.launch {
+                    eventLoading.value = false
+                }
             }
         }
     }

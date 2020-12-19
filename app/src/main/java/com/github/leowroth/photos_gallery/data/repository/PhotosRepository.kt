@@ -19,7 +19,8 @@ class PhotosRepository @Inject constructor(private val database: PhotosDatabase)
 
     suspend fun refreshPhotos() {
         withContext(Dispatchers.IO) {
-            val service = ServiceBuilder.buildService(PhotosEndpoints::class.java)
+            val service =
+                ServiceBuilder.buildService(PhotosEndpoints::class.java)
             val remotePhotos = service.getPhotosList()
             Timber.d("Inserting: ${remotePhotos.size}")
             database.photoDao().insertAll(remotePhotos.asDatabaseModel())
@@ -39,7 +40,8 @@ class PhotosRepository @Inject constructor(private val database: PhotosDatabase)
         }
     }
 
-    val photos: LiveData<List<Photo>> = Transformations.map(database.photoDao().getPhotos()) {
-        it.asDomainModel()
-    }
+    val photos: LiveData<List<Photo>> =
+        Transformations.map(database.photoDao().getPhotos()) {
+            it.asDomainModel()
+        }
 }
