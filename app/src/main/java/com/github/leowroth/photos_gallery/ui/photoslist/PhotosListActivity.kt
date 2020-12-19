@@ -5,6 +5,7 @@ import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.integration.recyclerview.RecyclerViewPreloader
 import com.bumptech.glide.util.ViewPreloadSizeProvider
@@ -29,6 +30,19 @@ class PhotosListActivity : BaseActivity() {
 
         viewModel = ViewModelProvider(this).get(PhotosListViewModel::class.java)
 
+        viewModel.eventLoadingData.observe(this, {
+            if (it) progressCircular.visibility = View.VISIBLE
+            else progressCircular.visibility = View.INVISIBLE
+        })
+
+        viewModel.eventNetworkErrorData.observe(this, {
+
+            //TODO show error
+            if (it) Timber.e("INTERNET DOWN INTERNET DOWN!")
+        })
+
+        viewModel.refreshDataFromRepository()
+
         viewModel.photosList.observe(this, { photosList ->
             val glideRequest = GlideApp.with(applicationContext)
             val fullRequest =
@@ -36,7 +50,8 @@ class PhotosListActivity : BaseActivity() {
                     glideRequest.asDrawable().centerCrop()
                         .placeholder(ColorDrawable(getColor(R.color.primaryColor)))
                 } else {
-                    glideRequest.asDrawable().centerCrop().placeholder(ColorDrawable(Color.MAGENTA))
+                    glideRequest.asDrawable().centerCrop()
+                        .placeholder(ColorDrawable(Color.MAGENTA))
                 }
 
             val sizeProvider = ViewPreloadSizeProvider<Photo>()
@@ -44,6 +59,7 @@ class PhotosListActivity : BaseActivity() {
             val adapter = setupAdapter(photosList, sizeProvider, fullRequest)
             setupRecyclerView(adapter, glideRequest, sizeProvider)
         })
+
     }
 
     private fun setupAdapter(
