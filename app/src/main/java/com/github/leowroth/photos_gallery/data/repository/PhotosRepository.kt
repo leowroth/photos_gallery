@@ -41,7 +41,7 @@ class PhotosRepository @Inject constructor(private val database: PhotosDatabase)
     }
 
     val photos: LiveData<List<Photo>> =
-        Transformations.map(database.photoDao().getPhotos()) {
-            it.asDomainModel()
+        Transformations.map(database.photoDao().getPhotos()) { databasePhotos ->
+            databasePhotos.asDomainModel().sortedBy { it.position }
         }
 }
