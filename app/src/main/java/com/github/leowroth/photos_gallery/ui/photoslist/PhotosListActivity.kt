@@ -72,9 +72,6 @@ class PhotosListActivity : BaseActivity() {
         adapter.onItemClick = { position ->
             viewModel.onPhotoClicked(position)
         }
-        adapter.onFaved = { position ->
-            viewModel.onFavedClicked(position)
-        }
         return adapter
     }
 

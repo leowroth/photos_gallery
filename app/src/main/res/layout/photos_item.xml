@@ -32,20 +32,10 @@
                 android:textSize="@dimen/standard_16sp"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/photosListFav"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/photosListImageView"
                 tools:text="Pablo Hernandez" />
 
-            <ImageView
-                android:id="@+id/photosListFav"
-                android:layout_width="@dimen/standard_16dp"
-                android:layout_height="@dimen/standard_16dp"
-                android:contentDescription="@string/blank_star"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="1"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/photosListImageView"
-                app:srcCompat="@drawable/ic_baseline_star_border_16" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>

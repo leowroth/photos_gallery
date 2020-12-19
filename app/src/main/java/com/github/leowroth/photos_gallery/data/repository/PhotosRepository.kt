@@ -9,7 +9,6 @@ import com.github.leowroth.photos_gallery.data.database.DatabasePhoto
 import com.github.leowroth.photos_gallery.data.database.PhotosDatabase
 import com.github.leowroth.photos_gallery.data.database.asDomainModel
 import com.github.leowroth.photos_gallery.domain.model.Photo
-import com.github.leowroth.photos_gallery.domain.model.asDatabasePhoto
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import timber.log.Timber
@@ -31,13 +30,6 @@ class PhotosRepository @Inject constructor(private val database: PhotosDatabase)
             oldPhotos.let {
                 it.forEach { oldPhoto -> database.photoDao().update(oldPhoto) }
             }
-        }
-    }
-
-    suspend fun photoFaved(currentPhoto: Photo) {
-        withContext(Dispatchers.IO) {
-            val copyPhoto = currentPhoto.copy(faved = currentPhoto.faved.not())
-            database.photoDao().update(copyPhoto.asDatabasePhoto())
         }
     }
 

@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.github.leowroth.photos_gallery.domain.model.Photo
 import com.github.leowroth.photos_gallery.domain.usecase.GetPhotosUseCase
 import com.github.leowroth.photos_gallery.domain.usecase.InsertAllPhotosUseCase
-import com.github.leowroth.photos_gallery.domain.usecase.PhotoFavedUseCase
 import com.github.leowroth.photos_gallery.domain.usecase.RefreshPhotosUseCase
 import com.github.leowroth.photos_gallery.ui.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
@@ -18,7 +17,6 @@ class PhotosListViewModel
 @ViewModelInject constructor(
     getPhotosUseCaseImpl: GetPhotosUseCase,
     private val refreshPhotosUseCaseImpl: RefreshPhotosUseCase,
-    private val photoFavedUseCaseImpl: PhotoFavedUseCase,
     private val insertAllPhotosUseCaseImpl: InsertAllPhotosUseCase
 ) : BaseViewModel() {
     val photosList = getPhotosUseCaseImpl.invoke()
@@ -42,14 +40,6 @@ class PhotosListViewModel
                 viewModelScope.launch {
                     eventLoading.value = false
                 }
-            }
-        }
-    }
-
-    fun onFavedClicked(position: Int) {
-        photosList.value?.get(position)?.let {
-            viewModelScope.launch(Dispatchers.IO) {
-                photoFavedUseCaseImpl.photoFaved(it)
             }
         }
     }
