@@ -16,7 +16,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/photosListImageView"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/photo_item_height"
+                android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -31,8 +31,8 @@
                 android:textColor="@color/primaryTextColor"
                 android:textSize="@dimen/standard_16sp"
                 app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintLeft_toLeftOf="@id/photosListImageView"
-                app:layout_constraintRight_toRightOf="@id/photosListImageView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/photosListFav"
                 app:layout_constraintTop_toBottomOf="@id/photosListImageView"
                 tools:text="Pablo Hernandez" />
 

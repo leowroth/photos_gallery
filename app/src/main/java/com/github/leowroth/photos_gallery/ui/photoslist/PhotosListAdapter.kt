@@ -46,7 +46,8 @@ class PhotosListAdapter(
         val currentPhoto = photosList[position]
         val photosListImageView = holder.binding.photosListImageView
 
-        fullRequest.load(currentPhoto.downloadUrl).into(photosListImageView)
+        fullRequest.load(currentPhoto.downloadUrl).fitCenter()
+            .into(photosListImageView)
         holder.binding.photosListLabel.text = currentPhoto.title
 
         drawFavedIcon(currentPhoto.faved, holder.binding.photosListFav)
