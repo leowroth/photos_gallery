@@ -12,7 +12,10 @@ interface PhotoDao {
     fun getCurrentPhotos(): List<DatabasePhoto>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(photos: List<DatabasePhoto>)
+    fun insertAllReplace(photos: List<DatabasePhoto>)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insertAllIgnore(photos: List<DatabasePhoto>)
 
     @Update()
     fun update(copyPhoto: DatabasePhoto)
