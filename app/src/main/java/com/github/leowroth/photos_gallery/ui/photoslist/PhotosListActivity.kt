@@ -70,10 +70,10 @@ class PhotosListActivity : BaseActivity() {
     private fun setupSnackbar(): Snackbar {
         return Snackbar.make(
             photosRecyclerView,
-            "Cats refresh failed!",
+            getString(R.string.network_error),
             Snackbar.LENGTH_INDEFINITE
         )
-            .setAction("Try again") {
+            .setAction(getString(R.string.try_again)) {
                 viewModel.refreshDataFromRepository()
                 internetErrorSnackbar.dismiss()
             }

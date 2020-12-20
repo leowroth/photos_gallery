@@ -1,3 +1,5 @@
 <resources>
     <string name="blank_star">Blank star</string>
+    <string name="network_error">Cats refresh failed!</string>
+    <string name="try_again">Try again</string>
 </resources>
