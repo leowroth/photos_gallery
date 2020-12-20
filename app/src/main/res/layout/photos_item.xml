@@ -16,7 +16,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/photosListImageView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/photos_list_imageview_height"
                 android:adjustViewBounds="true"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"

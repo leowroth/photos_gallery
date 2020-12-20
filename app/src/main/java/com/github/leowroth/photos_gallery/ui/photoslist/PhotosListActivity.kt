@@ -47,10 +47,10 @@ class PhotosListActivity : BaseActivity() {
             val glideRequest = GlideApp.with(applicationContext)
             val fullRequest =
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    glideRequest.asDrawable().centerCrop()
+                    glideRequest.asDrawable().fitCenter()
                         .placeholder(ColorDrawable(getColor(R.color.primaryColor)))
                 } else {
-                    glideRequest.asDrawable().centerCrop()
+                    glideRequest.asDrawable().fitCenter()
                         .placeholder(ColorDrawable(Color.MAGENTA))
                 }
 
