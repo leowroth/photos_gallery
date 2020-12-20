@@ -1,5 +1,6 @@
 package com.github.leowroth.photos_gallery.ui.photoslist
 
+import android.content.res.Configuration.ORIENTATION_PORTRAIT
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
@@ -7,6 +8,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.integration.recyclerview.RecyclerViewPreloader
 import com.bumptech.glide.util.ViewPreloadSizeProvider
 import com.github.leowroth.photos_gallery.GlideApp
@@ -44,7 +46,7 @@ class PhotosListActivity : BaseActivity() {
             if (it) internetErrorSnackbar.show()
         })
 
-        viewModel.refreshDataFromRepository()
+        viewModel.initDataFromRepository()
 
         viewModel.photosList.observe(this, { photosList ->
             val glideRequest = GlideApp.with(applicationContext)
@@ -74,7 +76,7 @@ class PhotosListActivity : BaseActivity() {
             Snackbar.LENGTH_INDEFINITE
         )
             .setAction(getString(R.string.try_again)) {
-                viewModel.refreshDataFromRepository()
+                viewModel.forceRefreshDataFromRepository()
                 internetErrorSnackbar.dismiss()
             }
     }
@@ -106,6 +108,11 @@ class PhotosListActivity : BaseActivity() {
         photosRecyclerView.setItemViewCacheSize(0)
         photosRecyclerView.setRecyclerListener { holder ->
             glideRequest.clear(holder.itemView)
+        }
+        if (resources.configuration.orientation == ORIENTATION_PORTRAIT) {
+            photosRecyclerView.layoutManager = GridLayoutManager(this, 1)
+        } else {
+            photosRecyclerView.layoutManager = GridLayoutManager(this, 2)
         }
     }
 }

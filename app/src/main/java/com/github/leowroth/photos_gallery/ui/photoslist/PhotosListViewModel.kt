@@ -26,9 +26,17 @@ class PhotosListViewModel
     private var eventLoading = MutableLiveData(false)
     val eventLoadingData: LiveData<Boolean> get() = eventLoading
 
-    fun refreshDataFromRepository() {
-        eventLoading.value = true
+    fun initDataFromRepository() {
+        if (photosList.value.isNullOrEmpty()) refreshData()
+    }
 
+    fun forceRefreshDataFromRepository() {
+        refreshData()
+    }
+
+    private fun refreshData() {
+        eventLoading.value = true
+        eventNetworkError.value = false
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 refreshPhotosUseCaseImpl.invoke()
