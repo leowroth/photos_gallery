@@ -15,30 +15,41 @@ import com.github.leowroth.photos_gallery.GlideRequests
 import com.github.leowroth.photos_gallery.R
 import com.github.leowroth.photos_gallery.domain.model.Photo
 import com.github.leowroth.photos_gallery.ui.base.BaseActivity
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.photos_list.*
-import timber.log.Timber
 
 @AndroidEntryPoint
 class PhotosListActivity : BaseActivity() {
     private val amountToPreload = 10
     private lateinit var viewModel: PhotosListViewModel
+    private lateinit var internetErrorSnackbar: Snackbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.photos_list)
 
+        internetErrorSnackbar = Snackbar.make(
+            photosRecyclerView,
+            "Cats refresh failed!",
+            Snackbar.LENGTH_INDEFINITE
+        )
+            .setAction("Try again") {
+                viewModel.refreshDataFromRepository()
+            }
+
         viewModel = ViewModelProvider(this).get(PhotosListViewModel::class.java)
 
         viewModel.eventLoadingData.observe(this, {
             if (it) progressCircular.visibility = View.VISIBLE
-            else progressCircular.visibility = View.INVISIBLE
+            else {
+                progressCircular.visibility = View.INVISIBLE
+                if (internetErrorSnackbar.isShown) internetErrorSnackbar.dismiss()
+            }
         })
 
         viewModel.eventNetworkErrorData.observe(this, {
-
-            //TODO show error
-            if (it) Timber.e("INTERNET DOWN INTERNET DOWN!")
+            if (it) internetErrorSnackbar.show()
         })
 
         viewModel.refreshDataFromRepository()
@@ -49,9 +60,11 @@ class PhotosListActivity : BaseActivity() {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     glideRequest.asDrawable().fitCenter()
                         .placeholder(ColorDrawable(getColor(R.color.primaryColor)))
+                        .error(R.mipmap.error_cat)
                 } else {
                     glideRequest.asDrawable().fitCenter()
                         .placeholder(ColorDrawable(Color.MAGENTA))
+                        .error(R.mipmap.error_cat)
                 }
 
             val sizeProvider = ViewPreloadSizeProvider<Photo>()

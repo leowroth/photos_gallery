@@ -43,8 +43,7 @@ class PhotosListAdapter(
         val currentPhoto = photosList[position]
         val photosListImageView = holder.binding.photosListImageView
 
-        fullRequest.load(currentPhoto.downloadUrl).fitCenter()
-            .into(photosListImageView)
+        fullRequest.load(currentPhoto.downloadUrl).into(photosListImageView)
         holder.binding.photosListLabel.text = currentPhoto.title
     }
 
