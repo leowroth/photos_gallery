@@ -29,14 +29,7 @@ class PhotosListActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.photos_list)
 
-        internetErrorSnackbar = Snackbar.make(
-            photosRecyclerView,
-            "Cats refresh failed!",
-            Snackbar.LENGTH_INDEFINITE
-        )
-            .setAction("Try again") {
-                viewModel.refreshDataFromRepository()
-            }
+        internetErrorSnackbar = setupSnackbar()
 
         viewModel = ViewModelProvider(this).get(PhotosListViewModel::class.java)
 
@@ -44,7 +37,6 @@ class PhotosListActivity : BaseActivity() {
             if (it) progressCircular.visibility = View.VISIBLE
             else {
                 progressCircular.visibility = View.INVISIBLE
-                if (internetErrorSnackbar.isShown) internetErrorSnackbar.dismiss()
             }
         })
 
@@ -73,6 +65,18 @@ class PhotosListActivity : BaseActivity() {
             setupRecyclerView(adapter, glideRequest, sizeProvider)
         })
 
+    }
+
+    private fun setupSnackbar(): Snackbar {
+        return Snackbar.make(
+            photosRecyclerView,
+            "Cats refresh failed!",
+            Snackbar.LENGTH_INDEFINITE
+        )
+            .setAction("Try again") {
+                viewModel.refreshDataFromRepository()
+                internetErrorSnackbar.dismiss()
+            }
     }
 
     private fun setupAdapter(

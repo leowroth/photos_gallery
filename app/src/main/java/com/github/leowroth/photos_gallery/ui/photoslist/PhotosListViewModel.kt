@@ -10,6 +10,7 @@ import com.github.leowroth.photos_gallery.domain.usecase.InsertAllPhotosUseCase
 import com.github.leowroth.photos_gallery.domain.usecase.RefreshPhotosUseCase
 import com.github.leowroth.photos_gallery.ui.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import okio.IOException
 
@@ -26,20 +27,20 @@ class PhotosListViewModel
     val eventLoadingData: LiveData<Boolean> get() = eventLoading
 
     fun refreshDataFromRepository() {
-        eventLoading.postValue(true)
+        eventLoading.value = true
 
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 refreshPhotosUseCaseImpl.invoke()
             } catch (networkError: IOException) {
                 viewModelScope.launch {
+                    // This delay prevents the Snackbar from being instantly
+                    //  dismissed, when the internet is completely off
+                    delay(500L)
                     eventNetworkError.value = true
-                    photosList.value.isNullOrEmpty()
                 }
             } finally {
-                viewModelScope.launch {
-                    eventLoading.value = false
-                }
+                viewModelScope.launch { eventLoading.value = false }
             }
         }
     }
