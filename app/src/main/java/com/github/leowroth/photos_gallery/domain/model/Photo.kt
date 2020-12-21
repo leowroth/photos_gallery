@@ -7,7 +7,7 @@ data class Photo(
     val title: String = "",
     val faved: Boolean = false,
     val downloadUrl: String = "",
-    val position: Int
+    val position: Int = 0
 )
 
 fun Photo.asDatabasePhoto(): DatabasePhoto {
