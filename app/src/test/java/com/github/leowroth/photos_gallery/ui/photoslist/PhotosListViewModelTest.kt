@@ -1,121 +1,122 @@
 package com.github.leowroth.photos_gallery.ui.photoslist
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.liveData
 import com.github.leowroth.photos_gallery.domain.model.Photo
 import com.github.leowroth.photos_gallery.domain.usecase.GetPhotosUseCase
-import com.github.leowroth.photos_gallery.domain.usecase.PhotoFavedUseCase
+import com.github.leowroth.photos_gallery.domain.usecase.InsertAllPhotosUseCase
 import com.github.leowroth.photos_gallery.domain.usecase.RefreshPhotosUseCase
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.ObsoleteCoroutinesApi
+import kotlinx.coroutines.newSingleThreadContext
+import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.setMain
 import okio.IOException
+import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.TestRule
 import kotlin.test.assertEquals
 
+@ObsoleteCoroutinesApi
 @ExperimentalCoroutinesApi
 class PhotosListViewModelTest {
 
     @get:Rule
-    var coroutinesTestRule = InstantTaskExecutorRule()
+    var coroutinesTestRule: TestRule = InstantTaskExecutorRule()
+    private val mainThreadSurrogate = newSingleThreadContext("UI thread")
 
     private val getPhotosUseCase = mockk<GetPhotosUseCase>()
     private val refreshPhotosUseCase = mockk<RefreshPhotosUseCase>()
-    private val photoFavedUseCase = mockk<PhotoFavedUseCase>()
+    private val insertAllPhotosUseCase = mockk<InsertAllPhotosUseCase>()
 
     private lateinit var photosListViewModel: PhotosListViewModel
 
-
     @Before
     fun setup() {
-        coEvery {
-            photoFavedUseCase.photoFaved(any())
-        } answers { nothing }
+
+        Dispatchers.setMain(mainThreadSurrogate)
+
         coEvery {
             refreshPhotosUseCase.invoke()
         } answers { nothing }
 
+        val expectedPhotos = liveData<MutableList<Photo>> {
+            mutableListOf(
+                Photo(id = "First"), Photo(id = "Second")
+            )
+        }
+        coEvery { getPhotosUseCase.invoke() } answers { expectedPhotos }
+
+        coEvery { insertAllPhotosUseCase.insertAll(any()) } answers { nothing }
+
+        photosListViewModel =
+            PhotosListViewModel(
+                getPhotosUseCase,
+                refreshPhotosUseCase,
+                insertAllPhotosUseCase,
+                mainThreadSurrogate,
+                mainThreadSurrogate
+            )
     }
 
-
-    @Test
-    fun `viewModel calls refreshPhotosUseCase at initiation`() =
-        runBlockingTest {
-            val expectedPhotos = MutableLiveData(
-                listOf(
-                    Photo(id = "First"), Photo(id = "Second")
-                )
-            )
-            coEvery { getPhotosUseCase.invoke() } answers { expectedPhotos }
-
-            photosListViewModel =
-                PhotosListViewModel(
-                    getPhotosUseCase,
-                    refreshPhotosUseCase,
-                    photoFavedUseCase
-                )
-            photosListViewModel.refreshDataFromRepository()
-
-            assertEquals(false, photosListViewModel.eventNetworkErrorData.value)
-            assertEquals(expectedPhotos, photosListViewModel.photosList)
-            coVerify { refreshPhotosUseCase.invoke() }
-        }
+    @After
+    fun tearDown() {
+        Dispatchers.resetMain()
+        mainThreadSurrogate.close()
+    }
 
     @Test
     fun `eventNetworkError is true when IOException`() =
         runBlockingTest {
-            val expectedPhotos = MutableLiveData(
-                listOf(
-                    Photo(id = "First"), Photo(id = "Second")
-                )
+            val expectedPhotos = mutableListOf(
+                Photo(id = "First"), Photo(id = "Second")
             )
-            coEvery { getPhotosUseCase.invoke() } answers { expectedPhotos }
+
+            coEvery { getPhotosUseCase.invoke().value } answers { expectedPhotos }
 
             coEvery {
                 refreshPhotosUseCase.invoke()
             } throws IOException()
 
-            photosListViewModel =
-                PhotosListViewModel(
-                    getPhotosUseCase,
-                    refreshPhotosUseCase,
-                    photoFavedUseCase
-                )
-            photosListViewModel.refreshDataFromRepository()
+            var result = false
 
-            assertEquals(true, photosListViewModel.eventNetworkErrorData.value)
+            photosListViewModel.eventNetworkErrorData.observeForever {
+                result = it
+            }
+            photosListViewModel.forceRefreshDataFromRepository()
+
+            assertEquals(true, result)
+            /* TODO somehow the assertEquals is still run before the
+            viewModelScope.launch() in PhotosListViewModel:44
+             */
         }
 
+
+    //TODO Has problems with LiveData as well
     @Test
-    fun `onFavedClicked calls photoFavedUseCase with correct Photo`() =
+    fun `onPhotoClicked calls insertAllPhotosUseCaseImpl clicked Photo at position 0`() =
         runBlockingTest {
             val currentPosition = 1
             val currentPhoto = Photo(id = "Second")
-            val currentPhotosList = MutableLiveData(
-                listOf(
-                    Photo(id = "First"),
-                    currentPhoto,
-                    Photo(id = "Third"),
-                    Photo(id = "Fourth")
-                )
+            val currentPhotos = mutableListOf(
+                Photo(id = "First"),
+                currentPhoto,
+                Photo(id = "Third"),
+                Photo(id = "Fourth")
             )
+            val currentPhotosList =
+                liveData<MutableList<Photo>> { currentPhotos }
             coEvery { getPhotosUseCase.invoke() } answers { currentPhotosList }
 
-            photosListViewModel =
-                PhotosListViewModel(
-                    getPhotosUseCase,
-                    refreshPhotosUseCase,
-                    photoFavedUseCase
-                )
+            photosListViewModel.onPhotoClicked(currentPosition)
 
-            photosListViewModel.onFavedClicked(currentPosition)
-
-            coVerify {
-                photoFavedUseCase.photoFaved(currentPhoto)
-            }
+            coVerify { insertAllPhotosUseCase.insertAll(currentPhotos) }
         }
 }
