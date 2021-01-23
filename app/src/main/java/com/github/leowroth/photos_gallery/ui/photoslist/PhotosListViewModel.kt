@@ -4,27 +4,21 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.github.leowroth.photos_gallery.IoDispatcher
-import com.github.leowroth.photos_gallery.MainDispatcher
 import com.github.leowroth.photos_gallery.domain.model.Photo
 import com.github.leowroth.photos_gallery.domain.usecase.GetPhotosUseCase
 import com.github.leowroth.photos_gallery.domain.usecase.InsertAllPhotosUseCase
 import com.github.leowroth.photos_gallery.domain.usecase.RefreshPhotosUseCase
 import com.github.leowroth.photos_gallery.ui.base.BaseViewModel
-import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import okio.IOException
 
 class PhotosListViewModel
 @ViewModelInject constructor(
-    private val getPhotosUseCaseImpl: GetPhotosUseCase,
+    getPhotosUseCaseImpl: GetPhotosUseCase,
     private val refreshPhotosUseCaseImpl: RefreshPhotosUseCase,
-    private val insertAllPhotosUseCaseImpl: InsertAllPhotosUseCase,
-    @MainDispatcher
-    private val mainDispatcher: CoroutineDispatcher,
-    @IoDispatcher
-    private val ioDispatcher: CoroutineDispatcher
+    private val insertAllPhotosUseCaseImpl: InsertAllPhotosUseCase
 ) : BaseViewModel() {
     val photosList = getPhotosUseCaseImpl.invoke()
     private var eventNetworkError = MutableLiveData(false)
@@ -41,25 +35,26 @@ class PhotosListViewModel
     }
 
     private fun refreshData() {
-        viewModelScope.launch(ioDispatcher) {
-            eventLoading.value = true
-            eventNetworkError.value = false
-
+        eventLoading.value = true
+        eventNetworkError.value = false
+        viewModelScope.launch(Dispatchers.IO) {
             try {
                 refreshPhotosUseCaseImpl.invoke()
             } catch (networkError: IOException) {
-                // This delay prevents the Snackbar from being instantly
-                //  dismissed, when the internet is completely off
-                delay(500L)
-                eventNetworkError.value = true
+                viewModelScope.launch {
+                    // This delay prevents the Snackbar from being instantly
+                    //  dismissed, when the internet is completely off
+                    delay(500L)
+                    eventNetworkError.value = true
+                }
             } finally {
-                eventLoading.value = false
+                viewModelScope.launch { eventLoading.value = false }
             }
         }
     }
 
     fun onPhotoClicked(position: Int) {
-        viewModelScope.launch(ioDispatcher) {
+        viewModelScope.launch(Dispatchers.IO) {
             photosList.value?.get(position)?.let {
                 val currentPhotos = photosList.value
                 currentPhotos?.let {
