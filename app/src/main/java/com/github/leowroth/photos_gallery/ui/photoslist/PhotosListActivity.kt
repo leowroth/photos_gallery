@@ -109,10 +109,12 @@ class PhotosListActivity : BaseActivity() {
         photosRecyclerView.setRecyclerListener { holder ->
             glideRequest.clear(holder.itemView)
         }
+
+        val lm = photosRecyclerView.layoutManager as GridLayoutManager
         if (resources.configuration.orientation == ORIENTATION_PORTRAIT) {
-            photosRecyclerView.layoutManager = GridLayoutManager(this, 1)
+            lm.spanCount = 1
         } else {
-            photosRecyclerView.layoutManager = GridLayoutManager(this, 2)
+            lm.spanCount = 2
         }
     }
 }
