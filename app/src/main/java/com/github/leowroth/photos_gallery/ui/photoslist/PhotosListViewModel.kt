@@ -35,20 +35,19 @@ class PhotosListViewModel
     }
 
     private fun refreshData() {
-        eventLoading.value = true
-        eventNetworkError.value = false
         viewModelScope.launch(Dispatchers.IO) {
+            eventLoading.postValue(true)
+            eventNetworkError.postValue(false)
             try {
                 refreshPhotosUseCaseImpl.invoke()
             } catch (networkError: IOException) {
-                viewModelScope.launch {
-                    // This delay prevents the Snackbar from being instantly
-                    //  dismissed, when the internet is completely off
-                    delay(500L)
-                    eventNetworkError.value = true
-                }
+                // This delay prevents the Snackbar from being instantly
+                //  dismissed, when the internet is completely off
+                delay(500L)
+                eventNetworkError.postValue(true)
+
             } finally {
-                viewModelScope.launch { eventLoading.value = false }
+                eventLoading.postValue(false)
             }
         }
     }

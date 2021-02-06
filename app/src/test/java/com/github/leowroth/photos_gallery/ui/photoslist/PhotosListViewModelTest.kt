@@ -1,10 +1,10 @@
 package com.github.leowroth.photos_gallery.ui.photoslist
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
+import com.github.leowroth.photos_gallery.CoroutinesTestRule
 import com.github.leowroth.photos_gallery.domain.model.Photo
 import com.github.leowroth.photos_gallery.domain.usecase.GetPhotosUseCase
-import com.github.leowroth.photos_gallery.domain.usecase.PhotoFavedUseCase
+import com.github.leowroth.photos_gallery.domain.usecase.InsertAllPhotosUseCase
 import com.github.leowroth.photos_gallery.domain.usecase.RefreshPhotosUseCase
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -21,20 +21,17 @@ import kotlin.test.assertEquals
 class PhotosListViewModelTest {
 
     @get:Rule
-    var coroutinesTestRule = InstantTaskExecutorRule()
+    var coroutinesTestRule = CoroutinesTestRule()
 
     private val getPhotosUseCase = mockk<GetPhotosUseCase>()
     private val refreshPhotosUseCase = mockk<RefreshPhotosUseCase>()
-    private val photoFavedUseCase = mockk<PhotoFavedUseCase>()
+    private val insertAllPhotosUseCase = mockk<InsertAllPhotosUseCase>()
 
     private lateinit var photosListViewModel: PhotosListViewModel
 
 
     @Before
     fun setup() {
-        coEvery {
-            photoFavedUseCase.photoFaved(any())
-        } answers { nothing }
         coEvery {
             refreshPhotosUseCase.invoke()
         } answers { nothing }
@@ -46,7 +43,7 @@ class PhotosListViewModelTest {
     fun `viewModel calls refreshPhotosUseCase at initiation`() =
         runBlockingTest {
             val expectedPhotos = MutableLiveData(
-                listOf(
+                mutableListOf(
                     Photo(id = "First"), Photo(id = "Second")
                 )
             )
@@ -56,9 +53,9 @@ class PhotosListViewModelTest {
                 PhotosListViewModel(
                     getPhotosUseCase,
                     refreshPhotosUseCase,
-                    photoFavedUseCase
+                    insertAllPhotosUseCase
                 )
-            photosListViewModel.refreshDataFromRepository()
+            photosListViewModel.forceRefreshDataFromRepository()
 
             assertEquals(false, photosListViewModel.eventNetworkErrorData.value)
             assertEquals(expectedPhotos, photosListViewModel.photosList)
@@ -67,9 +64,9 @@ class PhotosListViewModelTest {
 
     @Test
     fun `eventNetworkError is true when IOException`() =
-        runBlockingTest {
+        coroutinesTestRule.testDispatcher.runBlockingTest {
             val expectedPhotos = MutableLiveData(
-                listOf(
+                mutableListOf(
                     Photo(id = "First"), Photo(id = "Second")
                 )
             )
@@ -83,9 +80,9 @@ class PhotosListViewModelTest {
                 PhotosListViewModel(
                     getPhotosUseCase,
                     refreshPhotosUseCase,
-                    photoFavedUseCase
+                    insertAllPhotosUseCase
                 )
-            photosListViewModel.refreshDataFromRepository()
+            photosListViewModel.forceRefreshDataFromRepository()
 
             assertEquals(true, photosListViewModel.eventNetworkErrorData.value)
         }
@@ -96,7 +93,7 @@ class PhotosListViewModelTest {
             val currentPosition = 1
             val currentPhoto = Photo(id = "Second")
             val currentPhotosList = MutableLiveData(
-                listOf(
+                mutableListOf(
                     Photo(id = "First"),
                     currentPhoto,
                     Photo(id = "Third"),
@@ -109,13 +106,13 @@ class PhotosListViewModelTest {
                 PhotosListViewModel(
                     getPhotosUseCase,
                     refreshPhotosUseCase,
-                    photoFavedUseCase
+                    insertAllPhotosUseCase
                 )
 
-            photosListViewModel.onFavedClicked(currentPosition)
+            photosListViewModel.onPhotoClicked(currentPosition)
 
-            coVerify {
-                photoFavedUseCase.photoFaved(currentPhoto)
-            }
+//            coVerify {
+////                insertAllPhotosUseCase.insertAll(currentPhoto)
+//            }
         }
 }
