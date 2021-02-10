@@ -1,4 +1,4 @@
-package com.github.leowroth.photos_gallery
+package com.github.leowroth.photos_gallery.code_challenges
 
 import org.junit.Test
 import kotlin.test.assertEquals
