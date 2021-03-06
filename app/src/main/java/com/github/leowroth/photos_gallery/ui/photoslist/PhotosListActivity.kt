@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.integration.recyclerview.RecyclerViewPreloader
@@ -17,6 +18,7 @@ import com.github.leowroth.photos_gallery.GlideRequests
 import com.github.leowroth.photos_gallery.R
 import com.github.leowroth.photos_gallery.domain.model.Photo
 import com.github.leowroth.photos_gallery.ui.base.BaseActivity
+import com.github.leowroth.photos_gallery.utils.AvmXmlParser
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.photos_list.*
@@ -41,6 +43,14 @@ class PhotosListActivity : BaseActivity() {
                 progressCircular.visibility = View.INVISIBLE
             }
         })
+
+        val responseXml2 = assets.open("response.xml")
+
+        AvmXmlParser().parse(responseXml2)
+
+        Toast.makeText(
+            this, "resources: " + responseXml2.toString(), Toast.LENGTH_LONG
+        ).show()
 
         viewModel.eventNetworkErrorData.observe(this, {
             if (it) internetErrorSnackbar.show()
