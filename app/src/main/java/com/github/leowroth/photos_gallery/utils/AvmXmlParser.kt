@@ -4,8 +4,10 @@ import android.util.Xml
 import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.COUNT
 import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.ENERGY
 import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.GRID
+import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.POWER
 import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.STATS
 import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.TEMPERATURE
+import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.VOLTAGE
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
 import java.io.IOException
@@ -87,14 +89,30 @@ class AvmXmlParser {
             }
             when (parser.name) {
                 TEMPERATURE -> temperature = readTemperature(parser)
-//                "voltage" -> voltage = readVoltage(parser)
-//                "power" -> power = readPower(parser)
+                VOLTAGE -> voltage = readVoltage(parser)
+                POWER -> power = readPower(parser)
                 ENERGY -> energy = readEnergy(parser)
                 else -> skip(parser)
             }
         }
 
         return DeviceStats(temperature, voltage, power, energy)
+    }
+
+    @Throws(XmlPullParserException::class, IOException::class)
+    private fun readPower(parser: XmlPullParser): List<Stats> {
+        parser.require(XmlPullParser.START_TAG, ns, POWER)
+        val energy = readStats(parser)
+        parser.require(XmlPullParser.END_TAG, ns, POWER)
+        return energy
+    }
+
+    @Throws(XmlPullParserException::class, IOException::class)
+    private fun readVoltage(parser: XmlPullParser): List<Stats> {
+        parser.require(XmlPullParser.START_TAG, ns, VOLTAGE)
+        val energy = readStats(parser)
+        parser.require(XmlPullParser.END_TAG, ns, VOLTAGE)
+        return energy
     }
 
     @Throws(XmlPullParserException::class, IOException::class)
