@@ -63,6 +63,9 @@ dependencies {
     implementation "com.github.bumptech.glide:recyclerview-integration:$versions.glideVersion"
     kapt "com.github.bumptech.glide:compiler:4.11.0"
 
+    //MPAndroidChart
+    implementation "com.github.PhilJay:MPAndroidChart:v$versions.mpandroidVersion"
+
     // dependency injection
     implementation "com.google.dagger:hilt-android:$versions.hiltVersion"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$versions.hiltCompilerVersion"
