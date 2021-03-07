@@ -1,5 +1,6 @@
 package com.github.leowroth.photos_gallery.ui.photoslist
 
+import android.app.AlertDialog
 import android.content.res.Configuration.ORIENTATION_PORTRAIT
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -7,7 +8,6 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.integration.recyclerview.RecyclerViewPreloader
@@ -19,8 +19,12 @@ import com.github.leowroth.photos_gallery.R
 import com.github.leowroth.photos_gallery.domain.model.Photo
 import com.github.leowroth.photos_gallery.ui.base.BaseActivity
 import com.github.leowroth.photos_gallery.utils.AvmXmlParser
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.line_chart_dialog.view.*
 import kotlinx.android.synthetic.main.photos_list.*
 
 @AndroidEntryPoint
@@ -44,14 +48,11 @@ class PhotosListActivity : BaseActivity() {
             }
         })
 
-//        val responseXml2 = assets.open("response.xml")
         val responseXml2 = resources.openRawResource(R.raw.response)
 
-        val data = AvmXmlParser().parse(responseXml2)
+        val deviceStats = AvmXmlParser().parse(responseXml2)
 
-        Toast.makeText(
-            this, "resources: " + responseXml2.toString(), Toast.LENGTH_LONG
-        ).show()
+        showLineChart(deviceStats)
 
         viewModel.eventNetworkErrorData.observe(this, {
             if (it) internetErrorSnackbar.show()
@@ -78,6 +79,32 @@ class PhotosListActivity : BaseActivity() {
             setupRecyclerView(adapter, glideRequest, sizeProvider)
         })
 
+    }
+
+    private fun showLineChart(deviceStats: AvmXmlParser.DeviceStats) {
+
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(getString(R.string.devicestats))
+
+        val layout = layoutInflater.inflate(R.layout.line_chart_dialog, null)
+        builder.setView(layout)
+        val dialog = builder.create()
+
+        val entries =
+            deviceStats.temperature?.first()?.values?.mapIndexed { index, s ->
+                if (s == "-") {
+                    Entry(index.toFloat(), 0.0f)
+                } else {
+                    Entry(index.toFloat(), s.toFloat())
+                }
+            }
+        val lineDataSet = LineDataSet(entries, "Temperature")
+        val lineData = LineData(lineDataSet)
+
+        dialog.show()
+
+        layout.chart.data = lineData
+        layout.chart.invalidate()
     }
 
     private fun setupSnackbar(): Snackbar {
