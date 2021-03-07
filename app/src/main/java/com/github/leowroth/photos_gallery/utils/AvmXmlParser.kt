@@ -1,6 +1,11 @@
 package com.github.leowroth.photos_gallery.utils
 
 import android.util.Xml
+import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.COUNT
+import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.ENERGY
+import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.GRID
+import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.STATS
+import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.TEMPERATURE
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
 import java.io.IOException
@@ -12,33 +17,14 @@ private val ns: String? = null
 class AvmXmlParser {
 
     @Throws(XmlPullParserException::class, IOException::class)
-    fun parse(inputStream: InputStream): List<*> {
+    fun parse(inputStream: InputStream): DeviceStats {
         inputStream.use {
             val parser: XmlPullParser = Xml.newPullParser()
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false)
             parser.setInput(it, null)
             parser.nextTag()
-            return readFeed(parser)
+            return readDeviceStats(parser)
         }
-    }
-
-    private fun readFeed(parser: XmlPullParser): List<DeviceStats> {
-        val deviceStats = mutableListOf<DeviceStats>()
-
-        parser.require(XmlPullParser.START_TAG, ns, "devicestats")
-        while (parser.next() != XmlPullParser.END_TAG) {
-            if (parser.eventType != XmlPullParser.START_TAG) {
-                continue
-            }
-            // Starts by looking for the entry tag
-            if (parser.name == "devicestats") {
-                deviceStats.add(readDeviceStats(parser))
-            } else {
-                skip(parser)
-            }
-        }
-        return deviceStats
-
     }
 
     data class DeviceStats(
@@ -46,7 +32,19 @@ class AvmXmlParser {
         val voltage: List<Stats>?,
         val power: List<Stats>?,
         val energy: List<Stats>?
-    )
+    ) {
+        companion object {
+            const val DEVICESTATS = "devicestats"
+            const val TEMPERATURE = "temperature"
+            const val VOLTAGE = "voltage"
+            const val POWER = "power"
+            const val ENERGY = "energy"
+            const val STATS = "stats"
+            const val COUNT = "count"
+            const val GRID = "grid"
+        }
+
+    }
 
     data class Stats(
         val count: Int,
@@ -76,7 +74,7 @@ class AvmXmlParser {
 
     @Throws(XmlPullParserException::class, IOException::class)
     private fun readDeviceStats(parser: XmlPullParser): DeviceStats {
-        parser.require(XmlPullParser.START_TAG, ns, "devicestats")
+        parser.require(XmlPullParser.START_TAG, ns, DeviceStats.DEVICESTATS)
         var temperature: List<Stats>? = null
         var voltage: List<Stats>? = null
         var power: List<Stats>? = null
@@ -87,10 +85,10 @@ class AvmXmlParser {
                 continue
             }
             when (parser.name) {
-                "temperature" -> temperature = readTemperature(parser)
+                TEMPERATURE -> temperature = readTemperature(parser)
 //                "voltage" -> voltage = readVoltage(parser)
 //                "power" -> power = readPower(parser)
-//                "energy" -> energy = readEnergy(parser)
+                ENERGY -> energy = readEnergy(parser)
                 else -> skip(parser)
             }
         }
@@ -99,19 +97,35 @@ class AvmXmlParser {
     }
 
     @Throws(XmlPullParserException::class, IOException::class)
-    private fun readTemperature(parser: XmlPullParser): List<Stats>? {
-        parser.require(XmlPullParser.START_TAG, ns, "temperature")
+    private fun readEnergy(parser: XmlPullParser): List<Stats> {
+        parser.require(XmlPullParser.START_TAG, ns, ENERGY)
+        val energy = readStats(parser)
+        parser.nextTag()
+        parser.require(XmlPullParser.END_TAG, ns, ENERGY)
+        return energy
+    }
+
+    @Throws(XmlPullParserException::class, IOException::class)
+    private fun readTemperature(parser: XmlPullParser): List<Stats> {
+        parser.require(XmlPullParser.START_TAG, ns, TEMPERATURE)
         val temperature = readStats(parser)
-        parser.require(XmlPullParser.END_TAG, ns, "temperature")
+        parser.nextTag()
+        parser.require(XmlPullParser.END_TAG, ns, TEMPERATURE)
         return temperature
     }
 
     @Throws(XmlPullParserException::class, IOException::class)
-    private fun readStats(parser: XmlPullParser): List<Stats>? {
-        parser.require(XmlPullParser.START_TAG, ns, "stats")
+    private fun readStats(parser: XmlPullParser): List<Stats> {
+        parser.nextTag()
+        parser.require(XmlPullParser.START_TAG, ns, STATS)
+        val count = parser.getAttributeValue(null, COUNT)
+        val grid = parser.getAttributeValue(null, GRID)
         val values = readText(parser)
-        parser.require(XmlPullParser.END_TAG, ns, "stats")
-        return arrayListOf(Stats(2, 3, values))
+        if (count == null || grid == null) {
+            throw IOException("Couldn't parse count or grid in stats")
+        }
+        parser.require(XmlPullParser.END_TAG, ns, STATS)
+        return arrayListOf(Stats(count.toInt(), grid.toInt(), values))
     }
 
     @Throws(XmlPullParserException::class, IOException::class)
@@ -121,7 +135,7 @@ class AvmXmlParser {
             result = parser.text
             parser.nextTag()
         }
-        return result.split(",").toTypedArray()
+        return result.trimIndent().split(",").toTypedArray()
     }
 
     @Throws(XmlPullParserException::class, IOException::class)

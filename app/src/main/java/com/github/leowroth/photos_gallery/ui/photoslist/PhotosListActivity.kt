@@ -44,9 +44,10 @@ class PhotosListActivity : BaseActivity() {
             }
         })
 
-        val responseXml2 = assets.open("response.xml")
+//        val responseXml2 = assets.open("response.xml")
+        val responseXml2 = resources.openRawResource(R.raw.response)
 
-        AvmXmlParser().parse(responseXml2)
+        val data = AvmXmlParser().parse(responseXml2)
 
         Toast.makeText(
             this, "resources: " + responseXml2.toString(), Toast.LENGTH_LONG
