@@ -10,6 +10,7 @@ import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
 import java.io.IOException
 import java.io.InputStream
+import java.util.*
 
 // We don't use namespaces
 private val ns: String? = null
@@ -100,7 +101,6 @@ class AvmXmlParser {
     private fun readEnergy(parser: XmlPullParser): List<Stats> {
         parser.require(XmlPullParser.START_TAG, ns, ENERGY)
         val energy = readStats(parser)
-        parser.nextTag()
         parser.require(XmlPullParser.END_TAG, ns, ENERGY)
         return energy
     }
@@ -109,23 +109,25 @@ class AvmXmlParser {
     private fun readTemperature(parser: XmlPullParser): List<Stats> {
         parser.require(XmlPullParser.START_TAG, ns, TEMPERATURE)
         val temperature = readStats(parser)
-        parser.nextTag()
         parser.require(XmlPullParser.END_TAG, ns, TEMPERATURE)
         return temperature
     }
 
     @Throws(XmlPullParserException::class, IOException::class)
     private fun readStats(parser: XmlPullParser): List<Stats> {
-        parser.nextTag()
-        parser.require(XmlPullParser.START_TAG, ns, STATS)
-        val count = parser.getAttributeValue(null, COUNT)
-        val grid = parser.getAttributeValue(null, GRID)
-        val values = readText(parser)
-        if (count == null || grid == null) {
-            throw IOException("Couldn't parse count or grid in stats")
+        val statsList = ArrayList<Stats>()
+        while (parser.nextTag() == XmlPullParser.START_TAG) {
+            parser.require(XmlPullParser.START_TAG, ns, STATS)
+            val count = parser.getAttributeValue(null, COUNT)
+            val grid = parser.getAttributeValue(null, GRID)
+            val values = readText(parser)
+            if (count == null || grid == null) {
+                throw IOException("Couldn't parse count or grid in stats")
+            }
+            parser.require(XmlPullParser.END_TAG, ns, STATS)
+            statsList.add(Stats(count.toInt(), grid.toInt(), values))
         }
-        parser.require(XmlPullParser.END_TAG, ns, STATS)
-        return arrayListOf(Stats(count.toInt(), grid.toInt(), values))
+        return statsList
     }
 
     @Throws(XmlPullParserException::class, IOException::class)
