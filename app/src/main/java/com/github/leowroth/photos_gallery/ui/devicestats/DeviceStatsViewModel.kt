@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.github.leowroth.photos_gallery.ui.base.BaseViewModel
-import com.github.leowroth.photos_gallery.utils.AvmXmlParser
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
@@ -20,7 +19,7 @@ class DeviceStatsViewModel : BaseViewModel() {
 
     fun initDeviceStats(responseXml: InputStream) {
         viewModelScope.launch(Dispatchers.IO) {
-            val parsedDeviceStats = AvmXmlParser().parse(responseXml)
+            val parsedDeviceStats = DeviceStatsXmlParser().parse(responseXml)
 
             val temperatureLineDataSet =
                 LineDataSet(

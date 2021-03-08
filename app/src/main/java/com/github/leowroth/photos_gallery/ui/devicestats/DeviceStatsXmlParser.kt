@@ -1,13 +1,13 @@
-package com.github.leowroth.photos_gallery.utils
+package com.github.leowroth.photos_gallery.ui.devicestats
 
 import android.util.Xml
-import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.COUNT
-import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.ENERGY
-import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.GRID
-import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.POWER
-import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.STATS
-import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.TEMPERATURE
-import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.VOLTAGE
+import com.github.leowroth.photos_gallery.ui.devicestats.DeviceStatsXmlParser.DeviceStats.Companion.COUNT
+import com.github.leowroth.photos_gallery.ui.devicestats.DeviceStatsXmlParser.DeviceStats.Companion.ENERGY
+import com.github.leowroth.photos_gallery.ui.devicestats.DeviceStatsXmlParser.DeviceStats.Companion.GRID
+import com.github.leowroth.photos_gallery.ui.devicestats.DeviceStatsXmlParser.DeviceStats.Companion.POWER
+import com.github.leowroth.photos_gallery.ui.devicestats.DeviceStatsXmlParser.DeviceStats.Companion.STATS
+import com.github.leowroth.photos_gallery.ui.devicestats.DeviceStatsXmlParser.DeviceStats.Companion.TEMPERATURE
+import com.github.leowroth.photos_gallery.ui.devicestats.DeviceStatsXmlParser.DeviceStats.Companion.VOLTAGE
 import com.github.mikephil.charting.data.Entry
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
@@ -18,7 +18,10 @@ import java.util.*
 // We don't use namespaces
 private val ns: String? = null
 
-class AvmXmlParser {
+/**
+ * See https://developer.android.com/training/basics/network-ops/xml#kotlin
+ */
+class DeviceStatsXmlParser {
 
     @Throws(XmlPullParserException::class, IOException::class)
     fun parse(inputStream: InputStream): DeviceStats {
@@ -28,91 +31,6 @@ class AvmXmlParser {
             parser.setInput(it, null)
             parser.nextTag()
             return readDeviceStats(parser)
-        }
-    }
-
-    data class DeviceStats(
-        val temperature: List<Stats>?,
-        val voltage: List<Stats>?,
-        val power: List<Stats>?,
-        val energy: List<Stats>?
-    ) {
-        companion object {
-            const val DEVICESTATS = "devicestats"
-            const val TEMPERATURE = "temperature"
-            const val VOLTAGE = "voltage"
-            const val POWER = "power"
-            const val ENERGY = "energy"
-            const val STATS = "stats"
-            const val COUNT = "count"
-            const val GRID = "grid"
-        }
-
-        fun getTemperatureEntries(): List<Entry>? {
-            return temperature?.first()?.values?.mapIndexed { index, value ->
-                if (value == "-") {
-                    Entry(index.toFloat(), 0.0f)
-                } else {
-                    Entry(index.toFloat(), value.toFloat())
-                }
-            }
-        }
-
-        fun getVoltageEntries(): List<Entry>? {
-            return voltage?.first()?.values?.mapIndexed { index, value ->
-                if (value == "-") {
-                    Entry(index.toFloat(), 0.0f)
-                } else {
-                    Entry(index.toFloat(), value.toFloat())
-                }
-            }
-        }
-
-        fun getPowerEntries(): List<Entry>? {
-            return power?.first()?.values?.mapIndexed { index, value ->
-                if (value == "-") {
-                    Entry(index.toFloat(), 0.0f)
-                } else {
-                    Entry(index.toFloat(), value.toFloat())
-                }
-            }
-        }
-
-        fun getEnergyEntries(): List<Entry>? {
-            return energy?.first()?.values?.mapIndexed { index, value ->
-                if (value == "-") {
-                    Entry(index.toFloat(), 0.0f)
-                } else {
-                    Entry(index.toFloat(), value.toFloat())
-                }
-            }
-        }
-
-    }
-
-    data class Stats(
-        val count: Int,
-        val grid: Int,
-        val values: Array<String>
-    ) {
-        override fun equals(other: Any?): Boolean {
-            if (this === other) return true
-            if (javaClass != other?.javaClass) return false
-
-            other as Stats
-
-            if (count != other.count) return false
-            if (grid != other.grid) return false
-            if (!values.contentEquals(other.values)) return false
-
-            return true
-        }
-
-        override fun hashCode(): Int {
-            var result = count
-            result = 31 * result + grid
-            result = 31 * result + values.contentHashCode()
-            return result
         }
     }
 
@@ -210,6 +128,91 @@ class AvmXmlParser {
                 XmlPullParser.END_TAG -> depth--
                 XmlPullParser.START_TAG -> depth++
             }
+        }
+    }
+
+    data class DeviceStats(
+        val temperature: List<Stats>?,
+        val voltage: List<Stats>?,
+        val power: List<Stats>?,
+        val energy: List<Stats>?
+    ) {
+        companion object {
+            const val DEVICESTATS = "devicestats"
+            const val TEMPERATURE = "temperature"
+            const val VOLTAGE = "voltage"
+            const val POWER = "power"
+            const val ENERGY = "energy"
+            const val STATS = "stats"
+            const val COUNT = "count"
+            const val GRID = "grid"
+        }
+
+        fun getTemperatureEntries(): List<Entry>? {
+            return temperature?.first()?.values?.mapIndexed { index, value ->
+                if (value == "-") {
+                    Entry(index.toFloat(), 0.0f)
+                } else {
+                    Entry(index.toFloat(), value.toFloat())
+                }
+            }
+        }
+
+        fun getVoltageEntries(): List<Entry>? {
+            return voltage?.first()?.values?.mapIndexed { index, value ->
+                if (value == "-") {
+                    Entry(index.toFloat(), 0.0f)
+                } else {
+                    Entry(index.toFloat(), value.toFloat())
+                }
+            }
+        }
+
+        fun getPowerEntries(): List<Entry>? {
+            return power?.first()?.values?.mapIndexed { index, value ->
+                if (value == "-") {
+                    Entry(index.toFloat(), 0.0f)
+                } else {
+                    Entry(index.toFloat(), value.toFloat())
+                }
+            }
+        }
+
+        fun getEnergyEntries(): List<Entry>? {
+            return energy?.first()?.values?.mapIndexed { index, value ->
+                if (value == "-") {
+                    Entry(index.toFloat(), 0.0f)
+                } else {
+                    Entry(index.toFloat(), value.toFloat())
+                }
+            }
+        }
+
+    }
+
+    data class Stats(
+        val count: Int,
+        val grid: Int,
+        val values: Array<String>
+    ) {
+        override fun equals(other: Any?): Boolean {
+            if (this === other) return true
+            if (javaClass != other?.javaClass) return false
+
+            other as Stats
+
+            if (count != other.count) return false
+            if (grid != other.grid) return false
+            if (!values.contentEquals(other.values)) return false
+
+            return true
+        }
+
+        override fun hashCode(): Int {
+            var result = count
+            result = 31 * result + grid
+            result = 31 * result + values.contentHashCode()
+            return result
         }
     }
 }
