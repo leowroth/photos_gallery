@@ -26,6 +26,7 @@ class PhotosListViewModel
     private var eventLoading = MutableLiveData(false)
     val eventLoadingData: LiveData<Boolean> get() = eventLoading
 
+
     fun initDataFromRepository() {
         if (photosList.value.isNullOrEmpty()) refreshData()
     }
@@ -69,4 +70,6 @@ class PhotosListViewModel
             }
         }
     }
+
+
 }

@@ -1,6 +1,5 @@
 package com.github.leowroth.photos_gallery.ui.photoslist
 
-import android.app.AlertDialog
 import android.content.res.Configuration.ORIENTATION_PORTRAIT
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -18,13 +17,8 @@ import com.github.leowroth.photos_gallery.GlideRequests
 import com.github.leowroth.photos_gallery.R
 import com.github.leowroth.photos_gallery.domain.model.Photo
 import com.github.leowroth.photos_gallery.ui.base.BaseActivity
-import com.github.leowroth.photos_gallery.utils.AvmXmlParser
-import com.github.mikephil.charting.data.LineData
-import com.github.mikephil.charting.data.LineDataSet
-import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.line_chart_dialog.view.*
 import kotlinx.android.synthetic.main.photos_list.*
 
 @AndroidEntryPoint
@@ -47,10 +41,6 @@ class PhotosListActivity : BaseActivity() {
                 progressCircular.visibility = View.INVISIBLE
             }
         })
-
-        val responseXml = resources.openRawResource(R.raw.response)
-        val deviceStats = AvmXmlParser().parse(responseXml)
-        showLineChartDialog(deviceStats)
 
         viewModel.eventNetworkErrorData.observe(this, {
             if (it) internetErrorSnackbar.show()
@@ -76,45 +66,6 @@ class PhotosListActivity : BaseActivity() {
             val adapter = setupAdapter(photosList, sizeProvider, fullRequest)
             setupRecyclerView(adapter, glideRequest, sizeProvider)
         })
-
-    }
-
-    private fun showLineChartDialog(deviceStats: AvmXmlParser.DeviceStats) {
-
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle(getString(R.string.devicestats))
-
-        val layout = layoutInflater.inflate(R.layout.line_chart_dialog, null)
-        builder.setView(layout)
-        val dialog = builder.create()
-
-        val temperatureLineDataSet =
-            LineDataSet(deviceStats.getTemperatureEntries(), "Temperature")
-        temperatureLineDataSet.color = Color.RED
-
-        val voltageLineDataSet =
-            LineDataSet(deviceStats.getVoltageEntries(), "Voltage")
-        voltageLineDataSet.color = Color.GREEN
-
-        val powerLineDataSet =
-            LineDataSet(deviceStats.getPowerEntries(), "Power")
-        powerLineDataSet.color = Color.BLUE
-
-        val energyLineDataSet =
-            LineDataSet(deviceStats.getEnergyEntries(), "Energy")
-        energyLineDataSet.color = Color.YELLOW
-
-        val dataSets = arrayListOf<ILineDataSet>()
-        dataSets.add(temperatureLineDataSet)
-        dataSets.add(voltageLineDataSet)
-        dataSets.add(powerLineDataSet)
-        dataSets.add(energyLineDataSet)
-
-        val data = LineData(dataSets)
-        layout.chart.data = data
-        layout.chart.invalidate()
-
-        dialog.show()
     }
 
     private fun setupSnackbar(): Snackbar {
