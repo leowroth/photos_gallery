@@ -8,6 +8,7 @@ import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Compani
 import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.STATS
 import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.TEMPERATURE
 import com.github.leowroth.photos_gallery.utils.AvmXmlParser.DeviceStats.Companion.VOLTAGE
+import com.github.mikephil.charting.data.Entry
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
 import java.io.IOException
@@ -45,6 +46,46 @@ class AvmXmlParser {
             const val STATS = "stats"
             const val COUNT = "count"
             const val GRID = "grid"
+        }
+
+        fun getTemperatureEntries(): List<Entry>? {
+            return temperature?.first()?.values?.mapIndexed { index, value ->
+                if (value == "-") {
+                    Entry(index.toFloat(), 0.0f)
+                } else {
+                    Entry(index.toFloat(), value.toFloat())
+                }
+            }
+        }
+
+        fun getVoltageEntries(): List<Entry>? {
+            return voltage?.first()?.values?.mapIndexed { index, value ->
+                if (value == "-") {
+                    Entry(index.toFloat(), 0.0f)
+                } else {
+                    Entry(index.toFloat(), value.toFloat())
+                }
+            }
+        }
+
+        fun getPowerEntries(): List<Entry>? {
+            return power?.first()?.values?.mapIndexed { index, value ->
+                if (value == "-") {
+                    Entry(index.toFloat(), 0.0f)
+                } else {
+                    Entry(index.toFloat(), value.toFloat())
+                }
+            }
+        }
+
+        fun getEnergyEntries(): List<Entry>? {
+            return energy?.first()?.values?.mapIndexed { index, value ->
+                if (value == "-") {
+                    Entry(index.toFloat(), 0.0f)
+                } else {
+                    Entry(index.toFloat(), value.toFloat())
+                }
+            }
         }
 
     }
