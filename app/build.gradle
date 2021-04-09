@@ -99,6 +99,13 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:$versions.okhttpVersion"
     implementation "com.google.code.gson:gson:$versions.gsonVersion"
 
+    //XML
+    implementation("org.simpleframework:simple-xml:$versions.simpleXmlVersion") {
+        exclude module: 'stax'
+        exclude module: 'stax-api'
+        exclude module: 'xpp3'
+    }
+
     // Testing
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockitoVersion"
     testImplementation "junit:junit:$versions.junitVersion"
