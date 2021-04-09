@@ -1,0 +1,1032 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:github" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4a557a50-062e-4189-8249-e63ef52e2486" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@C:\Users\Leo\.android\avd\Pixel_2_XL_API_29.avd]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Enum" />
+        <option value="Kotlin Interface" />
+        <option value="Gradle Kotlin DSL Settings" />
+        <option value="valueResourceFile" />
+        <option value="JUnit4 Test Class" />
+        <option value="Kotlin File" />
+        <option value="Kotlin Class" />
+        <option value="layoutResourceFile" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="master" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="ProjectId" id="1Yw5KXmu60VpVcl0Eh3wUgvBLD9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DEBUGGABLE_DEVICE" value="Pixel_2_XL_API_29 [emulator-5554]" />
+    <property name="DEBUGGABLE_PROCESS" value="com.github.leowroth.photos_gallery" />
+    <property name="DEBUGGER_ID" value="Auto" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="VirtualDevicePath@C:\Users\Leo\.android\avd\Pixel_2_XL_API_29.avd" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-03-08T21:20:20.546889700Z" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHOW_ALL_PROCESSES" value="false" />
+    <property name="android-custom-viewC:/Users/Leo/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/test/java/com/github/leowroth/photos_gallery/ui/photoslist" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/raw" />
+    <property name="not.eligible.for.single.variant.sync" value="true" />
+    <property name="project.structure.last.edited" value="Dependencies" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+  </component>
+  <component name="PsdUISettings">
+    <option name="LAST_EDITED_BUILD_TYPE" value="release" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.github.leowroth.photos_gallery.ui.devicestats" />
+      <recent name="com.github.leowroth.photos_gallery" />
+      <recent name="com.github.leowroth.photos_gallery.domain" />
+      <recent name="com.github.weg_li_android.ui" />
+      <recent name="com.github.weg_li_android.ui.base" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.github.leowroth.photos_gallery.ui.photoslist" />
+      <recent name="com.github.weg_li_android.data.model" />
+      <recent name="com.github.weg_li_android.ui.main.viewmodel" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.github.leowroth.photos_gallery.ui.devicestats" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Development\Workspace\photos gallery\app\src\main\res\raw" />
+      <recent name="D:\Development\Workspace\photos gallery\app\src\main\res\xml" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Development\Workspace\photos gallery\app\src\main\assets" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Android App.app">
+    <configuration name="PhotosListViewModelTest.eventNetworkError is true when IOException" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="photos_gallery.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.leowroth.photos_gallery.ui.photoslist.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.leowroth.photos_gallery.ui.photoslist" />
+      <option name="MAIN_CLASS_NAME" value="com.github.leowroth.photos_gallery.ui.photoslist.PhotosListViewModelTest" />
+      <option name="METHOD_NAME" value="eventNetworkError is true when IOException" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PhotosListViewModelTest.viewModel calls refreshPhotosUseCase at initiation" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="photos_gallery.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.leowroth.photos_gallery.ui.photoslist.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.leowroth.photos_gallery.ui.photoslist" />
+      <option name="MAIN_CLASS_NAME" value="com.github.leowroth.photos_gallery.ui.photoslist.PhotosListViewModelTest" />
+      <option name="METHOD_NAME" value="viewModel calls refreshPhotosUseCase at initiation" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="code_challenges in photos_gallery.app" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="photos_gallery.app" />
+      <option name="TEST_OBJECT" value="directory" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <dir value="$PROJECT_DIR$/app/src/test/java/com/github/leowroth/photos_gallery/code_challenges" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="photos_gallery.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="weg-li-android.app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="weg-li-android.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="photos_gallery.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.leowroth.photos_gallery.code_challenges.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.leowroth.photos_gallery.code_challenges" />
+      <option name="MAIN_CLASS_NAME" value="com.github.leowroth.photos_gallery.code_challenges.Tests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="XorTests.calculateFX test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="photos_gallery.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.leowroth.photos_gallery.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.leowroth.photos_gallery" />
+      <option name="MAIN_CLASS_NAME" value="com.github.leowroth.photos_gallery.XorTests" />
+      <option name="METHOD_NAME" value="calculateFX test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Android JUnit.code_challenges in photos_gallery.app" />
+        <item itemvalue="Android JUnit.PhotosListViewModelTest.eventNetworkError is true when IOException" />
+        <item itemvalue="Android JUnit.PhotosListViewModelTest.viewModel calls refreshPhotosUseCase at initiation" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4a557a50-062e-4189-8249-e63ef52e2486" name="Default Changelist" comment="" />
+      <created>1583840752526</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583840752526</updated>
+    </task>
+    <task id="LOCAL-00087" summary="made service local val">
+      <created>1608150144690</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1608150144691</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Added mockk library">
+      <created>1608150984366</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1608150984366</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Added core-testing library">
+      <created>1608218815293</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1608218815293</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Added following usecases: GetPhotosUseCase.kt, PhotoFavedUseCase.kt, RefreshPhotosUseCase.kt">
+      <created>1608220440872</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1608220440872</updated>
+    </task>
+    <task id="LOCAL-00091" summary="call photoFavedUseCase in background">
+      <created>1608220987408</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1608220987408</updated>
+    </task>
+    <task id="LOCAL-00092" summary="Changed database schema to show titles">
+      <created>1608222526455</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1608222526455</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Inject UseCase interfaces instead of implementations, added Modules to useCases for Hilt">
+      <created>1608245970301</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1608245970302</updated>
+    </task>
+    <task id="LOCAL-00094" summary="Project codestyle max line reduced to 80">
+      <created>1608295435754</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1608295435755</updated>
+    </task>
+    <task id="LOCAL-00095" summary="Added kotlinx-coroutines-test library">
+      <created>1608295461528</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1608295461528</updated>
+    </task>
+    <task id="LOCAL-00096" summary="Added CoroutinesTestRule.kt">
+      <created>1608295532040</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1608295532040</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Added default values to Photo.kt">
+      <created>1608295548380</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1608295548381</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Added PhotosListViewModelTest.kt with init() test">
+      <created>1608295573687</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1608295573687</updated>
+    </task>
+    <task id="LOCAL-00099" summary="Added `onFavedClicked calls photoFavedUseCase with correct Photo` test">
+      <created>1608296956810</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1608296956810</updated>
+    </task>
+    <task id="LOCAL-00100" summary="Items are now in a CardView">
+      <created>1608297357277</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1608297357277</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Fixed OutOfBounds exception when preloading">
+      <created>1608373929053</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1608373929053</updated>
+    </task>
+    <task id="LOCAL-00102" summary="Worked on PhotosListViewModelTest.kt, it's still failing because LiveData.setValue() is called">
+      <created>1608374024813</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1608374024813</updated>
+    </task>
+    <task id="LOCAL-00103" summary="Added ProgressBar and show it observing eventLoadingData">
+      <created>1608374066247</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1608374066247</updated>
+    </task>
+    <task id="LOCAL-00104" summary="Adjusted image to fitCenter">
+      <created>1608375090901</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1608375090901</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Added position to Photo.kt and DatabasePhoto to sort the list">
+      <created>1608382312363</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1608382312364</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Sort every photosList by position coming from PhotosRepository.kt">
+      <created>1608382795071</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1608382795071</updated>
+    </task>
+    <task id="LOCAL-00107" summary="getPhotos() returns MutableList instead of List, added insertAll to PhotosRepository.kt, added InsertAllPhotosUseCase.kt,">
+      <created>1608419149612</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1608419149612</updated>
+    </task>
+    <task id="LOCAL-00108" summary="Implemented onPhotoClick logic">
+      <created>1608419175716</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1608419175716</updated>
+    </task>
+    <task id="LOCAL-00109" summary="Removed all onFaved logic">
+      <created>1608419467618</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1608419467618</updated>
+    </task>
+    <task id="LOCAL-00110" summary="Added insertAllIgnore to RoomDao, refreshPhotos now ignores already existing photos">
+      <created>1608459490825</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1608459490825</updated>
+    </task>
+    <task id="LOCAL-00111" summary="changed photosListImageView height to fixed 300dp for Glide preloading">
+      <created>1608459922311</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1608459922311</updated>
+    </task>
+    <task id="LOCAL-00112" summary="Show ErrorCat when image url invalid, show SnackBar if internet error">
+      <created>1608469828855</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1608469828855</updated>
+    </task>
+    <task id="LOCAL-00113" summary="Added a 500ms delay for updating eventNetworkError else the Snackbar gets instantly dismissed, if the internet is completely off">
+      <created>1608480059043</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1608480059043</updated>
+    </task>
+    <task id="LOCAL-00114" summary="Extracted strings for snackbar">
+      <created>1608480842723</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1608480842724</updated>
+    </task>
+    <task id="LOCAL-00115" summary="Added spanCount change for different orientations">
+      <created>1608501282951</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1608501282955</updated>
+    </task>
+    <task id="LOCAL-00116" summary="Cleaned up code small lint warnings and added lint exception for dagger @bind annotation">
+      <created>1608501563361</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1608501563361</updated>
+    </task>
+    <task id="LOCAL-00117" summary="Changed app name to &quot;Best Cats&quot;, changed App Icon">
+      <created>1608502768650</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1608502768650</updated>
+    </task>
+    <task id="LOCAL-00118" summary="Changed app name to &quot;Best Cats&quot;, changed App Icon">
+      <created>1608548558194</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1608548558194</updated>
+    </task>
+    <task id="LOCAL-00119" summary="Worked on the tests, changed PhotosListViewModel.kt to inject Dispatchers">
+      <created>1608553637966</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1608553637966</updated>
+    </task>
+    <task id="LOCAL-00120" summary="Revert &quot;Worked on the tests, changed PhotosListViewModel.kt to inject Dispatchers&quot;&#10;&#10;This reverts commit 58d90739">
+      <created>1611406598308</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1611406598309</updated>
+    </task>
+    <task id="LOCAL-00121" summary="Use the same GridLayoutManager to benefit from animation">
+      <created>1611406656370</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1611406656370</updated>
+    </task>
+    <task id="LOCAL-00122" summary="Tests for application">
+      <created>1612610971900</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1612610971900</updated>
+    </task>
+    <task id="LOCAL-00123" summary="Created code_challenges package for all tests">
+      <created>1612960482199</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1612960482200</updated>
+    </task>
+    <task id="LOCAL-00124" summary="Created code_challenges package for all tests">
+      <created>1615070809807</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1615070809808</updated>
+    </task>
+    <task id="LOCAL-00125" summary="Added companion object to DeviceStats for constants names, parse now returns just DeviceStats, parsing temperature works">
+      <created>1615153729859</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1615153729860</updated>
+    </task>
+    <task id="LOCAL-00126" summary="readStats now correctly parses every possible stats tag and already skips to the next tag">
+      <created>1615154192497</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1615154192497</updated>
+    </task>
+    <task id="LOCAL-00127" summary="added readPower and readVoltage">
+      <created>1615156093040</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1615156093040</updated>
+    </task>
+    <task id="LOCAL-00128" summary="Added MPAndroidChart dependency">
+      <created>1615156497279</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1615156497279</updated>
+    </task>
+    <task id="LOCAL-00129" summary="Added MPAndroidChart dependency">
+      <created>1615158582666</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1615158582666</updated>
+    </task>
+    <task id="LOCAL-00130" summary="First line chart is visible">
+      <created>1615158596287</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1615158596287</updated>
+    </task>
+    <task id="LOCAL-00131" summary="First line chart is visible">
+      <created>1615158655184</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1615158655184</updated>
+    </task>
+    <task id="LOCAL-00132" summary="Added all dataSets to the LineChart">
+      <created>1615241046187</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1615241046188</updated>
+    </task>
+    <task id="LOCAL-00133" summary="Created new DeviceStatsActivity and pulled everything out from PhotosListActivity">
+      <created>1615244670961</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1615244670961</updated>
+    </task>
+    <task id="LOCAL-00134" summary="Added circleColor to LineDataSet and renamed device_stats.xml to device_stats_layout.xml">
+      <created>1615245875364</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1615245875364</updated>
+    </task>
+    <task id="LOCAL-00135" summary="Moved DeviceStatsXmlParser.kt and renamed">
+      <created>1615246599935</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1615246599935</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="getPhotos() returns MutableList instead of List, added insertAll to PhotosRepository.kt, added InsertAllPhotosUseCase.kt," />
+    <MESSAGE value="Implemented onPhotoClick logic" />
+    <MESSAGE value="Removed all onFaved logic" />
+    <MESSAGE value="Added insertAllIgnore to RoomDao, refreshPhotos now ignores already existing photos" />
+    <MESSAGE value="changed photosListImageView height to fixed 300dp for Glide preloading" />
+    <MESSAGE value="Show ErrorCat when image url invalid, show SnackBar if internet error" />
+    <MESSAGE value="Added a 500ms delay for updating eventNetworkError else the Snackbar gets instantly dismissed, if the internet is completely off" />
+    <MESSAGE value="Extracted strings for snackbar" />
+    <MESSAGE value="Added spanCount change for different orientations" />
+    <MESSAGE value="Cleaned up code small lint warnings and added lint exception for dagger @bind annotation" />
+    <MESSAGE value="Changed app name to &quot;Best Cats&quot;, changed App Icon" />
+    <MESSAGE value="Worked on the tests, changed PhotosListViewModel.kt to inject Dispatchers" />
+    <MESSAGE value="Revert &quot;Worked on the tests, changed PhotosListViewModel.kt to inject Dispatchers&quot;&#10;&#10;This reverts commit 58d90739" />
+    <MESSAGE value="Use the same GridLayoutManager to benefit from animation" />
+    <MESSAGE value="Tests for application" />
+    <MESSAGE value="Created code_challenges package for all tests" />
+    <MESSAGE value="Added companion object to DeviceStats for constants names, parse now returns just DeviceStats, parsing temperature works" />
+    <MESSAGE value="readStats now correctly parses every possible stats tag and already skips to the next tag" />
+    <MESSAGE value="added readPower and readVoltage" />
+    <MESSAGE value="Added MPAndroidChart dependency" />
+    <MESSAGE value="First line chart is visible" />
+    <MESSAGE value="Added all dataSets to the LineChart" />
+    <MESSAGE value="Created new DeviceStatsActivity and pulled everything out from PhotosListActivity" />
+    <MESSAGE value="Added circleColor to LineDataSet and renamed device_stats.xml to device_stats_layout.xml" />
+    <MESSAGE value="Moved DeviceStatsXmlParser.kt and renamed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved DeviceStatsXmlParser.kt and renamed" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="92" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1608509939938">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1608509939938" />
+    <state x="469" y="342" width="898" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1608392859763">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="469" y="342" key="#com.intellij.ide.util.MemberChooser/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1608392859763" />
+    <state x="608" y="401" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1615245905476">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="608" y="401" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615245905476" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1608418085493">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1608418085493" />
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1615243618007">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615243618007" />
+    <state x="694" y="311" width="776" height="418" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1615243473385">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="694" y="311" width="776" height="418" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615243473385" />
+    <state x="636" y="437" width="1024" height="594" key="#xdebugger.evaluate" timestamp="1615158447815">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="636" y="437" width="1024" height="594" key="#xdebugger.evaluate/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615158447815" />
+    <state x="76" y="95" width="1736" height="856" key="AVDManager" timestamp="1611403782035">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="76" y="95" width="1736" height="856" key="AVDManager/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1611403782035" />
+    <state x="540" y="274" key="AndroidCreateResourceDirectoryDialog" timestamp="1615148497031">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="540" y="274" key="AndroidCreateResourceDirectoryDialog/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615148497031" />
+    <state x="540" y="274" key="AndroidCreateResourceFileDialog" timestamp="1615243556037">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="540" y="274" key="AndroidCreateResourceFileDialog/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615243556037" />
+    <state x="767" y="541" key="AndroidCreateXmlResourceDialog" timestamp="1615157150123">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="767" y="541" key="AndroidCreateXmlResourceDialog/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615157150123" />
+    <state x="713" y="266" key="AndroidProcessChooserDialog" timestamp="1615026624286">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="713" y="266" key="AndroidProcessChooserDialog/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615026624286" />
+    <state x="192" y="57" width="1476" height="973" key="CommitChangelistDialog2" timestamp="1615246599238">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="192" y="57" width="1476" height="973" key="CommitChangelistDialog2/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615246599238" />
+    <state x="444" y="67" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1612960480615" />
+    <state width="1449" height="466" key="DebuggerActiveHint" timestamp="1615244176008">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1449" height="466" key="DebuggerActiveHint/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615244176008" />
+    <state x="192" y="86" width="1536" height="861" key="DiffContextDialog" timestamp="1615153641520">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="192" y="86" width="1536" height="861" key="DiffContextDialog/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615153641520" />
+    <state x="700" y="261" key="FileChooserDialogImpl" timestamp="1608502660880">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="700" y="261" key="FileChooserDialogImpl/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1608502660880" />
+    <state width="1879" height="177" key="GridCell.Tab.0.bottom" timestamp="1615245496946">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="177" key="GridCell.Tab.0.bottom/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615245496946" />
+    <state width="1879" height="220" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1612960501047" />
+    <state width="1879" height="177" key="GridCell.Tab.0.center" timestamp="1615245496946">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="177" key="GridCell.Tab.0.center/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615245496946" />
+    <state width="1879" height="220" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1612960501047" />
+    <state width="1879" height="177" key="GridCell.Tab.0.left" timestamp="1615245496946">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="177" key="GridCell.Tab.0.left/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615245496946" />
+    <state width="1879" height="220" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1612960501046" />
+    <state width="1879" height="177" key="GridCell.Tab.0.right" timestamp="1615245496946">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="177" key="GridCell.Tab.0.right/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615245496946" />
+    <state width="1879" height="220" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1612960501047" />
+    <state width="1879" height="177" key="GridCell.Tab.1.bottom" timestamp="1615245496947">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="177" key="GridCell.Tab.1.bottom/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615245496947" />
+    <state width="1879" height="244" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608328562145" />
+    <state width="1879" height="177" key="GridCell.Tab.1.center" timestamp="1615245496947">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="177" key="GridCell.Tab.1.center/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615245496947" />
+    <state width="1879" height="244" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608328562145" />
+    <state width="1879" height="177" key="GridCell.Tab.1.left" timestamp="1615245496947">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="177" key="GridCell.Tab.1.left/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615245496947" />
+    <state width="1879" height="244" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608328562145" />
+    <state width="1879" height="177" key="GridCell.Tab.1.right" timestamp="1615245496947">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1879" height="177" key="GridCell.Tab.1.right/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615245496947" />
+    <state width="1879" height="244" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608328562145" />
+    <state x="540" y="262" key="IDE.errors.dialog" timestamp="1615025314431">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="540" y="262" key="IDE.errors.dialog/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615025314431" />
+    <state x="435" y="222" key="RollbackChangesDialog" timestamp="1608553292594">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="435" y="222" key="RollbackChangesDialog/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1608553292594" />
+    <state x="238" y="191" width="1321" height="711" key="SettingsEditor" timestamp="1615149848451">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="238" y="191" width="1321" height="711" key="SettingsEditor/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615149848451" />
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1611405206065">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1611405206065" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1615246601625">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615246601625" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1612960489201" />
+    <state x="615" y="253" key="VcsDiffUtil.ChangesDialog" timestamp="1611404995844">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="615" y="253" key="VcsDiffUtil.ChangesDialog/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1611404995844" />
+    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1615153126989">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="968" height="528" key="XDebugger.FullValuePopup/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615153126989" />
+    <state x="754" y="297" width="636" height="445" key="chooseDestDirectoryDialog" timestamp="1608508997460">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="754" y="297" width="636" height="445" key="chooseDestDirectoryDialog/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1608508997460" />
+    <state x="571" y="198" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1612607059064">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="571" y="198" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1612607059064" />
+    <state x="743" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615243531625">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="743" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615243531625" />
+    <state x="501" y="248" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1615151073653">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="501" y="248" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615151073653" />
+    <state x="855" y="306" width="1065" height="600" key="find.popup" timestamp="1615041489243">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="855" y="306" width="1065" height="600" key="find.popup/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615041489243" />
+    <state x="669" y="232" key="git4idea.branch.GitSmartOperationDialog" timestamp="1611405301033">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="669" y="232" key="git4idea.branch.GitSmartOperationDialog/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1611405301033" />
+    <state width="567" height="418" key="javadoc.popup.new" timestamp="1615246169617">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="567" height="418" key="javadoc.popup.new/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615246169617" />
+    <state x="616" y="293" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog" timestamp="1608509000112">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="293" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1608509000112" />
+    <state x="790" y="291" key="refactoring.ChangeSignatureDialog" timestamp="1608220065603">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="790" y="291" key="refactoring.ChangeSignatureDialog/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1608220065603" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1615149805556">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1680.30.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1615149805556" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/github/photos_gallery/data/repository/Repository.kt</url>
+          <line>10</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/github/photos_gallery/ui/photoslist/PhotosListActivity.kt</url>
+          <line>41</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/github/photos_gallery/ui/photoslist/PhotosListActivity.kt</url>
+          <line>27</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/github/photos_gallery/ui/photoslist/PhotosListViewModel.kt</url>
+          <line>13</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/test/java/com/github/leowroth/photos_gallery/ui/photoslist/PhotosListViewModelTest.kt</url>
+          <line>66</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/test/java/com/github/leowroth/photos_gallery/ui/photoslist/PhotosListViewModelTest.kt</url>
+          <line>67</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/test/java/com/github/leowroth/photos_gallery/ui/photoslist/PhotosListViewModelTest.kt</url>
+          <line>86</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/test/java/com/github/leowroth/photos_gallery/ui/photoslist/PhotosListViewModelTest.kt</url>
+          <line>84</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/test/java/com/github/leowroth/photos_gallery/code_challenges/ANDtest.kt</url>
+          <line>17</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/test/java/com/github/leowroth/photos_gallery/code_challenges/XORtest.kt</url>
+          <line>8</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/test/java/com/github/leowroth/photos_gallery/code_challenges/XORtest.kt</url>
+          <line>9</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/github/leowroth/photos_gallery/ui/devicestats/DeviceStatsXmlParser.kt</url>
+          <line>203</line>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/github/leowroth/photos_gallery/ui/devicestats/DeviceStatsActivity.kt</url>
+          <line>27</line>
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/github/leowroth/photos_gallery/ui/devicestats/DeviceStatsActivity.kt</url>
+          <line>28</line>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="app">
+        <watch expression="parser.name" />
+        <watch expression="parser.text" />
+      </configuration>
+      <configuration name="JUnit">
+        <watch expression="b[index]" />
+        <watch expression="i and b[index]" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
